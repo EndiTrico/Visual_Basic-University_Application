@@ -73,6 +73,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Courses.vb" />
     <Compile Include="Database_UniversityDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -83,6 +84,18 @@
     </Compile>
     <Compile Include="Form1.Designer.vb">
       <DependentUpon>Form1.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Professor.Designer.vb">
+      <DependentUpon>Form_Professor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Professor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Professor_AddGrades.Designer.vb">
+      <DependentUpon>Form_Professor_AddGrades.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Professor_AddGrades.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -100,8 +113,15 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Professor.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Form_Professor.resx">
+      <DependentUpon>Form_Professor.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Professor_AddGrades.resx">
+      <DependentUpon>Form_Professor_AddGrades.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
