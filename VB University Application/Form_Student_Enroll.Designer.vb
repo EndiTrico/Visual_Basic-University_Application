@@ -22,14 +22,12 @@ Partial Class Form_Student_Enroll
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Me.btnClose = New System.Windows.Forms.Button()
         Me.btnBack = New System.Windows.Forms.Button()
         Me.lblEnroll = New System.Windows.Forms.Label()
         Me.lblChoose = New System.Windows.Forms.Label()
         Me.comboBoxEnroll = New System.Windows.Forms.ComboBox()
         Me.btnAdd = New System.Windows.Forms.Button()
-        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.pictureBoxSUNYLogo = New System.Windows.Forms.PictureBox()
         CType(Me.pictureBoxSUNYLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -100,7 +98,7 @@ Partial Class Form_Student_Enroll
         Me.comboBoxEnroll.Cursor = System.Windows.Forms.Cursors.Hand
         Me.comboBoxEnroll.Font = New System.Drawing.Font("Corbel", 11.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle))
         Me.comboBoxEnroll.FormattingEnabled = True
-        Me.comboBoxEnroll.Location = New System.Drawing.Point(277, 75)
+        Me.comboBoxEnroll.Location = New System.Drawing.Point(277, 74)
         Me.comboBoxEnroll.Margin = New System.Windows.Forms.Padding(2)
         Me.comboBoxEnroll.Name = "comboBoxEnroll"
         Me.comboBoxEnroll.RightToLeft = System.Windows.Forms.RightToLeft.No
@@ -125,11 +123,6 @@ Partial Class Form_Student_Enroll
         Me.btnAdd.Text = "Add"
         Me.btnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage
         Me.btnAdd.UseVisualStyleBackColor = False
-        '
-        'ContextMenuStrip1
-        '
-        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(61, 4)
         '
         'pictureBoxSUNYLogo
         '
@@ -157,6 +150,7 @@ Partial Class Form_Student_Enroll
         Me.Controls.Add(Me.pictureBoxSUNYLogo)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Margin = New System.Windows.Forms.Padding(2)
+        Me.Name = "Form_Student_Enroll"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         CType(Me.pictureBoxSUNYLogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -171,5 +165,4 @@ Partial Class Form_Student_Enroll
     Friend WithEvents lblChoose As Label
     Friend WithEvents comboBoxEnroll As ComboBox
     Friend WithEvents btnAdd As Button
-    Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
 End Class

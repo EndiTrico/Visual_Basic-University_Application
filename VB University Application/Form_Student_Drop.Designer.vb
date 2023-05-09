@@ -22,14 +22,12 @@ Partial Class Form_Student_Drop
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Me.btnClose = New System.Windows.Forms.Button()
         Me.btnBack = New System.Windows.Forms.Button()
         Me.lblDrop = New System.Windows.Forms.Label()
         Me.lblChoose = New System.Windows.Forms.Label()
         Me.comboBoxDrop = New System.Windows.Forms.ComboBox()
         Me.btnDrop = New System.Windows.Forms.Button()
-        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.pictureBoxSUNYLogo = New System.Windows.Forms.PictureBox()
         CType(Me.pictureBoxSUNYLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -116,11 +114,6 @@ Partial Class Form_Student_Drop
         Me.btnDrop.Text = "Drop"
         Me.btnDrop.UseVisualStyleBackColor = False
         '
-        'ContextMenuStrip1
-        '
-        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(61, 4)
-        '
         'pictureBoxSUNYLogo
         '
         Me.pictureBoxSUNYLogo.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(87, Byte), Integer))
@@ -160,5 +153,4 @@ Partial Class Form_Student_Drop
     Friend WithEvents lblChoose As Label
     Friend WithEvents comboBoxDrop As ComboBox
     Friend WithEvents btnDrop As Button
-    Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
 End Class

@@ -86,6 +86,12 @@
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Form_Login.Designer.vb">
+      <DependentUpon>Form_Login.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Login.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Form_Professor.Designer.vb">
       <DependentUpon>Form_Professor.vb</DependentUpon>
     </Compile>
@@ -96,6 +102,12 @@
       <DependentUpon>Form_Professor_AddGrades.vb</DependentUpon>
     </Compile>
     <Compile Include="Form_Professor_AddGrades.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Role.Designer.vb">
+      <DependentUpon>Form_Role.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Role.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form_Student.Designer.vb">
@@ -116,6 +128,8 @@
     <Compile Include="Form_Student_Enroll.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Grades.vb" />
+    <Compile Include="Login.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -131,14 +145,22 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Person.vb" />
     <Compile Include="Professor.vb" />
+    <Compile Include="Student.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Form_Login.resx">
+      <DependentUpon>Form_Login.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_Professor.resx">
       <DependentUpon>Form_Professor.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Professor_AddGrades.resx">
       <DependentUpon>Form_Professor_AddGrades.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Role.resx">
+      <DependentUpon>Form_Role.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Student.resx">
       <DependentUpon>Form_Student.vb</DependentUpon>
@@ -181,6 +203,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\SUNY_White_Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Empire_State_College_White_Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Empire_State_College_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Empire_State_College_logo.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

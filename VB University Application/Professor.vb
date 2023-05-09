@@ -152,7 +152,7 @@ Namespace University_Application
             Dim grade As Grades = New Grades()
 
             For Each grades As Grades In grade.readGrades()
-                If grades.CourseID.Equals(activeCourseId) Then gradeList.Add(grades)
+                If grades.CourseId1.Equals(activeCourseId) Then gradeList.Add(grades)
             Next
 
             Return gradeList
@@ -164,7 +164,7 @@ Namespace University_Application
             Dim gradeList As List(Of Integer) = New List(Of Integer)()
 
             For Each grades As Grades In getGrades()
-                gradeList.Add(grades.Score)
+                gradeList.Add(grades.Score1)
             Next
             Return gradeList
         End Function
@@ -214,7 +214,7 @@ Namespace University_Application
             Dim studentIds As List(Of Integer) = New List(Of Integer)()
 
             For Each grade As Grades In getGrades()
-                If grade.Score > 59 Then studentIds.Add(grade.StudentID)
+                If grade.Score1 > 59 Then studentIds.Add(grade.Studentid1)
             Next
 
             For Each Id In studentIds
@@ -231,7 +231,7 @@ Namespace University_Application
 
             For Each grade As Grades In getGrades()
 
-                If grade.Score <= 59 Then studentIds.Add(grade.StudentID)
+                If grade.Score1 <= 59 Then studentIds.Add(grade.Studentid1)
             Next
 
             For Each Id In studentIds
@@ -246,8 +246,8 @@ Namespace University_Application
             Dim lowestScoring As Student = New Student()
 
             For Each grade As Grades In getGrades()
-                If grade.Score = showMinGrade() Then
-                    lowestScoring = getStudentFromID(grade.StudentID)
+                If grade.Score1 = showMinGrade() Then
+                    lowestScoring = getStudentFromID(grade.Studentid1)
                     Exit For
                 End If
             Next
@@ -260,8 +260,8 @@ Namespace University_Application
             Dim highestScoring As Student = New Student()
 
             For Each grade As Grades In getGrades()
-                If grade.Score = showMaxGrade() Then
-                    highestScoring = getStudentFromID(grade.StudentID)
+                If grade.Score1 = showMaxGrade() Then
+                    highestScoring = getStudentFromID(grade.Studentid1)
                     Exit For
                 End If
             Next
@@ -398,7 +398,6 @@ Namespace University_Application
             If Courses Is Nothing Then
                 Return Me.Name.ToString() & "," + Me.Surname.ToString() & "," + Me.Username.ToString() & "," + Me.Password
             Else
-
                 Dim result As String = Me.Name.ToString() & "," + Me.Surname.ToString() & "," + Me.Username.ToString() & "," + Me.Password
                 For i = 0 To Courses.Count - 1
                     result += "," & Courses(i)
