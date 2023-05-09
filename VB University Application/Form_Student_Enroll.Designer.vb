@@ -22,7 +22,7 @@ Partial Class Form_Student_Enroll
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.btnClose = New System.Windows.Forms.Button()
+        Me.btnExit = New System.Windows.Forms.Button()
         Me.btnBack = New System.Windows.Forms.Button()
         Me.lblEnroll = New System.Windows.Forms.Label()
         Me.lblChoose = New System.Windows.Forms.Label()
@@ -34,21 +34,21 @@ Partial Class Form_Student_Enroll
         '
         'btnClose
         '
-        Me.btnClose.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(87, Byte), Integer))
-        Me.btnClose.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnClose.FlatAppearance.BorderSize = 0
-        Me.btnClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.WhiteSmoke
-        Me.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
-        Me.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnClose.Font = New System.Drawing.Font("Corbel", 13.0!, System.Drawing.FontStyle.Bold)
-        Me.btnClose.ForeColor = System.Drawing.Color.Snow
-        Me.btnClose.Location = New System.Drawing.Point(535, 0)
-        Me.btnClose.Margin = New System.Windows.Forms.Padding(2)
-        Me.btnClose.Name = "btnClose"
-        Me.btnClose.Size = New System.Drawing.Size(40, 40)
-        Me.btnClose.TabIndex = 13
-        Me.btnClose.Text = "X"
-        Me.btnClose.UseVisualStyleBackColor = False
+        Me.btnExit.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(87, Byte), Integer))
+        Me.btnExit.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnExit.FlatAppearance.BorderSize = 0
+        Me.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.WhiteSmoke
+        Me.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
+        Me.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnExit.Font = New System.Drawing.Font("Corbel", 13.0!, System.Drawing.FontStyle.Bold)
+        Me.btnExit.ForeColor = System.Drawing.Color.Snow
+        Me.btnExit.Location = New System.Drawing.Point(535, 0)
+        Me.btnExit.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnExit.Name = "btnClose"
+        Me.btnExit.Size = New System.Drawing.Size(40, 40)
+        Me.btnExit.TabIndex = 13
+        Me.btnExit.Text = "X"
+        Me.btnExit.UseVisualStyleBackColor = False
         '
         'btnBack
         '
@@ -145,7 +145,7 @@ Partial Class Form_Student_Enroll
         Me.Controls.Add(Me.comboBoxEnroll)
         Me.Controls.Add(Me.lblChoose)
         Me.Controls.Add(Me.lblEnroll)
-        Me.Controls.Add(Me.btnClose)
+        Me.Controls.Add(Me.btnExit)
         Me.Controls.Add(Me.btnBack)
         Me.Controls.Add(Me.pictureBoxSUNYLogo)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -158,7 +158,7 @@ Partial Class Form_Student_Enroll
 
     End Sub
 
-    Friend WithEvents btnClose As Button
+    Friend WithEvents btnExit As Button
     Friend WithEvents pictureBoxSUNYLogo As PictureBox
     Friend WithEvents btnBack As Button
     Friend WithEvents lblEnroll As Label

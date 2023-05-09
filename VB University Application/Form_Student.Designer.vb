@@ -230,7 +230,7 @@ Partial Class Form_Student
         Me.btnExit.Font = New System.Drawing.Font("Corbel", 13.0!, System.Drawing.FontStyle.Bold)
         Me.btnExit.ForeColor = System.Drawing.Color.Snow
         Me.btnExit.Location = New System.Drawing.Point(665, 0)
-        Me.btnExit.Name = "btnClose"
+        Me.btnExit.Name = "btnExit"
         Me.btnExit.Size = New System.Drawing.Size(40, 40)
         Me.btnExit.TabIndex = 11
         Me.btnExit.Text = "X"

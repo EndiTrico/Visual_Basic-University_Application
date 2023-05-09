@@ -31,7 +31,7 @@ Partial Public Class Form_Student_Drop
         End Set
     End Property
 
-    Public Property Name As String
+    Public Overloads Property Name As String
         Get
             Return _name
         End Get

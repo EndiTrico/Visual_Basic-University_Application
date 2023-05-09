@@ -1,16 +1,4 @@
-﻿Imports System
-Imports System.Collections.Generic
-Imports System.ComponentModel
-Imports System.Data
-Imports System.Drawing
-Imports System.Linq
-Imports System.Reflection.Emit
-Imports System.Text
-Imports System.Threading.Tasks
-Imports System.Windows.Forms
-Imports University_Application
-
-Partial Public Class Form_Student
+﻿Public Class Form_Student
     Inherits Form
 
     Private _studentID As Integer
@@ -30,7 +18,7 @@ Partial Public Class Form_Student
         End Set
     End Property
 
-    Public Property Name As String
+    Public Overloads Property Name As String
         Get
             Return _name
         End Get

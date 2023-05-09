@@ -24,64 +24,64 @@ Public Class Form_Student_Enroll
 
     Public Property StudentID As Integer
         Get
-            Return StudentID
+            Return _studentID
         End Get
         Set(ByVal value As Integer)
-            StudentID = value
+            _studentID = value
         End Set
     End Property
 
     Public Overloads Property Name As String
         Get
-            Return Name
+            Return _name
         End Get
         Set(ByVal value As String)
-            Name = value
+            _name = value
         End Set
     End Property
 
     Public Property Surname As String
         Get
-            Return Surname
+            Return _surname
         End Get
         Set(ByVal value As String)
-            surname = value
+            _surname = value
         End Set
     End Property
 
     Public Property Username As String
         Get
-            Return Username
+            Return _username
         End Get
         Set(ByVal value As String)
-            username = value
+            _username = value
         End Set
     End Property
 
     Public Property Password As String
         Get
-            Return Password
+            Return _password
         End Get
         Set(ByVal value As String)
-            password = value
+            _password = value
         End Set
     End Property
 
     Public Property Major As String
         Get
-            Return Major
+            Return _major
         End Get
         Set(ByVal value As String)
-            major = value
+            _major = value
         End Set
     End Property
 
     Public Property Courses As List(Of String)
         Get
-            Return Courses
+            Return _courses
         End Get
         Set(ByVal value As List(Of String))
-            courses = value
+            _courses = value
         End Set
     End Property
 
@@ -108,29 +108,26 @@ Public Class Form_Student_Enroll
         Next
     End Sub
 
-    Private Sub btnExit_Click(ByVal sender As Object, ByVal e As EventArgs)
+    Private Sub btnExit_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnExit.Click
         Me.Close()
     End Sub
 
-    Private Sub btnBack_Click(ByVal sender As Object, ByVal e As EventArgs)
-        Dim student As Form_Student = New Form_Student(StudentID, Name, surname, username, password, major, courses)
+    Private Sub btnBack_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnBack.Click
+        Dim student As Form_Student = New Form_Student(StudentID, Name, Surname, Username, Password, Major, Courses)
         Me.Hide()
         student.Show()
     End Sub
 
-    Private Sub btnAdd_Click(ByVal sender As Object, ByVal e As EventArgs)
+    Private Sub btnAdd_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnAdd.Click
         If comboBoxEnroll.SelectedIndex = -1 Then
             MessageBox.Show("Select a Course!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.[Error])
         Else
             Dim student = New Student(StudentID, Name, Surname, Username, Password, Major)
             student.enroll(comboBoxEnroll.Text, StudentID)
             MessageBox.Show("The Course is Added Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
-            Dim form_Student As Form_Student = New Form_Student(username, password)
+            Dim form_Student As Form_Student = New Form_Student(Username, Password)
             Me.Close()
             form_Student.Show()
         End If
-    End Sub
-
-    Private Sub Form_Student_Enroll_Load(ByVal sender As Object, ByVal e As EventArgs)
     End Sub
 End Class
