@@ -98,6 +98,24 @@
     <Compile Include="Form_Professor_AddGrades.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Form_Student.Designer.vb">
+      <DependentUpon>Form_Student.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Student.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Student_Drop.Designer.vb">
+      <DependentUpon>Form_Student_Drop.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Student_Drop.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Student_Enroll.Designer.vb">
+      <DependentUpon>Form_Student_Enroll.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Student_Enroll.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -121,6 +139,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Professor_AddGrades.resx">
       <DependentUpon>Form_Professor_AddGrades.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Student.resx">
+      <DependentUpon>Form_Student.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Student_Drop.resx">
+      <DependentUpon>Form_Student_Drop.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Student_Enroll.resx">
+      <DependentUpon>Form_Student_Enroll.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -151,6 +178,9 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SUNY_White_Logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

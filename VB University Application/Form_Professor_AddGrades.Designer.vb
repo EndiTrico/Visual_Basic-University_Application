@@ -34,7 +34,7 @@ Partial Class Form_Professor_AddGrades
         '
         'button_Back
         '
-        Me.button_Back.BackColor = System.Drawing.Color.DarkBlue
+        Me.button_Back.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(87, Byte), Integer))
         Me.button_Back.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke
         Me.button_Back.FlatAppearance.BorderSize = 0
         Me.button_Back.FlatAppearance.MouseDownBackColor = System.Drawing.Color.WhiteSmoke
@@ -82,13 +82,13 @@ Partial Class Form_Professor_AddGrades
         '
         'panel1
         '
-        Me.panel1.BackColor = System.Drawing.Color.DarkBlue
+        Me.panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(87, Byte), Integer))
         Me.panel1.Controls.Add(Me.Label1)
         Me.panel1.Controls.Add(Me.button_Add)
         Me.panel1.Controls.Add(Me.buttonExit)
         Me.panel1.Controls.Add(Me.button_Back)
         Me.panel1.Controls.Add(Me.textBox_Input)
-        Me.panel1.Location = New System.Drawing.Point(63, 36)
+        Me.panel1.Location = New System.Drawing.Point(0, 0)
         Me.panel1.Name = "panel1"
         Me.panel1.Size = New System.Drawing.Size(465, 343)
         Me.panel1.TabIndex = 3
@@ -119,7 +119,7 @@ Partial Class Form_Professor_AddGrades
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.buttonExit
-        Me.ClientSize = New System.Drawing.Size(597, 417)
+        Me.ClientSize = New System.Drawing.Size(464, 343)
         Me.Controls.Add(Me.panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Form_Professor_AddGrades"
