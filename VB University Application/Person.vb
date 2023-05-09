@@ -11,7 +11,7 @@ Public MustInherit Class Person
     Private _username As String
     Private _password As String
 
-    Protected Property Id As Integer
+    Public Property Id As Integer
         Get
             Return _id
         End Get
@@ -20,7 +20,7 @@ Public MustInherit Class Person
         End Set
     End Property
 
-    Protected Property Name As String
+    Public Property Name As String
         Get
             Return _name
         End Get
@@ -29,7 +29,7 @@ Public MustInherit Class Person
         End Set
     End Property
 
-    Protected Property Surname As String
+    Public Property Surname As String
         Get
             Return _surname
         End Get
@@ -38,7 +38,7 @@ Public MustInherit Class Person
         End Set
     End Property
 
-    Protected Property Username As String
+    Public Property Username As String
         Get
             Return _username
         End Get
@@ -47,7 +47,7 @@ Public MustInherit Class Person
         End Set
     End Property
 
-    Protected Property Password As String
+    Public Property Password As String
         Get
             Return _password
         End Get
@@ -56,7 +56,7 @@ Public MustInherit Class Person
         End Set
     End Property
 
-    Protected Sub New(ByVal id As Integer, ByVal name As String, ByVal surname As String, ByVal username As String, ByVal password As String)
+    Public Sub New(ByVal id As Integer, ByVal name As String, ByVal surname As String, ByVal username As String, ByVal password As String)
         Me.Id = id
         Me.Name = name
         Me.Surname = surname

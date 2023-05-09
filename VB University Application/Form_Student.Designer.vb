@@ -34,7 +34,7 @@ Partial Class Form_Student
         Me.btnEnroll = New System.Windows.Forms.Button()
         Me.lblName = New System.Windows.Forms.Label()
         Me.lblResult = New System.Windows.Forms.Label()
-        Me.btnClose = New System.Windows.Forms.Button()
+        Me.btnExit = New System.Windows.Forms.Button()
         Me.richTxtBoxResult = New System.Windows.Forms.RichTextBox()
         Me.studentPanel.SuspendLayout()
         Me.SuspendLayout()
@@ -219,22 +219,22 @@ Partial Class Form_Student
         Me.lblResult.TabIndex = 2
         Me.lblResult.Text = "Result:"
         '
-        'btnClose
+        'btnExit
         '
-        Me.btnClose.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(87, Byte), Integer))
-        Me.btnClose.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnClose.FlatAppearance.BorderSize = 0
-        Me.btnClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.WhiteSmoke
-        Me.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
-        Me.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnClose.Font = New System.Drawing.Font("Corbel", 13.0!, System.Drawing.FontStyle.Bold)
-        Me.btnClose.ForeColor = System.Drawing.Color.Snow
-        Me.btnClose.Location = New System.Drawing.Point(665, 0)
-        Me.btnClose.Name = "btnClose"
-        Me.btnClose.Size = New System.Drawing.Size(40, 40)
-        Me.btnClose.TabIndex = 11
-        Me.btnClose.Text = "X"
-        Me.btnClose.UseVisualStyleBackColor = False
+        Me.btnExit.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(87, Byte), Integer))
+        Me.btnExit.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnExit.FlatAppearance.BorderSize = 0
+        Me.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.WhiteSmoke
+        Me.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
+        Me.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnExit.Font = New System.Drawing.Font("Corbel", 13.0!, System.Drawing.FontStyle.Bold)
+        Me.btnExit.ForeColor = System.Drawing.Color.Snow
+        Me.btnExit.Location = New System.Drawing.Point(665, 0)
+        Me.btnExit.Name = "btnClose"
+        Me.btnExit.Size = New System.Drawing.Size(40, 40)
+        Me.btnExit.TabIndex = 11
+        Me.btnExit.Text = "X"
+        Me.btnExit.UseVisualStyleBackColor = False
         '
         'richTxtBoxResult
         '
@@ -252,7 +252,7 @@ Partial Class Form_Student
         Me.BackColor = System.Drawing.Color.WhiteSmoke
         Me.ClientSize = New System.Drawing.Size(705, 280)
         Me.Controls.Add(Me.richTxtBoxResult)
-        Me.Controls.Add(Me.btnClose)
+        Me.Controls.Add(Me.btnExit)
         Me.Controls.Add(Me.lblResult)
         Me.Controls.Add(Me.studentPanel)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -276,6 +276,6 @@ Partial Class Form_Student
     Friend WithEvents lblName As Label
     Friend WithEvents btnBack As Button
     Friend WithEvents lblResult As Label
-    Friend WithEvents btnClose As Button
+    Friend WithEvents btnExit As Button
     Friend WithEvents richTxtBoxResult As RichTextBox
 End Class
