@@ -32,7 +32,7 @@ Partial Class Form_Student_Enroll
         CType(Me.pictureBoxSUNYLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'btnClose
+        'btnExit
         '
         Me.btnExit.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(87, Byte), Integer))
         Me.btnExit.Cursor = System.Windows.Forms.Cursors.Hand
@@ -44,7 +44,7 @@ Partial Class Form_Student_Enroll
         Me.btnExit.ForeColor = System.Drawing.Color.Snow
         Me.btnExit.Location = New System.Drawing.Point(535, 0)
         Me.btnExit.Margin = New System.Windows.Forms.Padding(2)
-        Me.btnExit.Name = "btnClose"
+        Me.btnExit.Name = "btnExit"
         Me.btnExit.Size = New System.Drawing.Size(40, 40)
         Me.btnExit.TabIndex = 13
         Me.btnExit.Text = "X"
@@ -73,7 +73,7 @@ Partial Class Form_Student_Enroll
         Me.lblEnroll.AutoSize = True
         Me.lblEnroll.Font = New System.Drawing.Font("Corbel", 20.0!, System.Drawing.FontStyle.Bold)
         Me.lblEnroll.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(87, Byte), Integer))
-        Me.lblEnroll.Location = New System.Drawing.Point(241, 9)
+        Me.lblEnroll.Location = New System.Drawing.Point(271, 7)
         Me.lblEnroll.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblEnroll.Name = "lblEnroll"
         Me.lblEnroll.Size = New System.Drawing.Size(145, 33)
@@ -84,14 +84,14 @@ Partial Class Form_Student_Enroll
         '
         Me.lblChoose.AutoSize = True
         Me.lblChoose.BackColor = System.Drawing.Color.Transparent
-        Me.lblChoose.Font = New System.Drawing.Font("Corbel", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.lblChoose.Font = New System.Drawing.Font("Corbel", 13.0!, System.Drawing.FontStyle.Bold)
         Me.lblChoose.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(87, Byte), Integer))
         Me.lblChoose.Location = New System.Drawing.Point(148, 76)
         Me.lblChoose.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblChoose.Name = "lblChoose"
-        Me.lblChoose.Size = New System.Drawing.Size(127, 19)
+        Me.lblChoose.Size = New System.Drawing.Size(119, 22)
         Me.lblChoose.TabIndex = 17
-        Me.lblChoose.Text = "Enroll in a Course"
+        Me.lblChoose.Text = "Course Name:"
         '
         'comboBoxEnroll
         '
@@ -104,7 +104,7 @@ Partial Class Form_Student_Enroll
         Me.comboBoxEnroll.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.comboBoxEnroll.Size = New System.Drawing.Size(261, 26)
         Me.comboBoxEnroll.TabIndex = 18
-        Me.comboBoxEnroll.Text = "Choose the Course"
+        Me.comboBoxEnroll.Text = "Choose a Course"
         '
         'btnAdd
         '

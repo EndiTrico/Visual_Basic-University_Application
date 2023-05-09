@@ -43,7 +43,7 @@ Partial Class Form_Student_Drop
         Me.btnExit.Font = New System.Drawing.Font("Corbel", 13.0!, System.Drawing.FontStyle.Bold)
         Me.btnExit.ForeColor = System.Drawing.Color.Snow
         Me.btnExit.Location = New System.Drawing.Point(534, 0)
-        Me.btnExit.Name = "btnClose"
+        Me.btnExit.Name = "btnExit"
         Me.btnExit.Size = New System.Drawing.Size(40, 40)
         Me.btnExit.TabIndex = 13
         Me.btnExit.Text = "X"
@@ -71,7 +71,7 @@ Partial Class Form_Student_Drop
         Me.lblDrop.AutoSize = True
         Me.lblDrop.Font = New System.Drawing.Font("Corbel", 20.0!, System.Drawing.FontStyle.Bold)
         Me.lblDrop.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(87, Byte), Integer))
-        Me.lblDrop.Location = New System.Drawing.Point(254, 9)
+        Me.lblDrop.Location = New System.Drawing.Point(255, 7)
         Me.lblDrop.Name = "lblDrop"
         Me.lblDrop.Size = New System.Drawing.Size(178, 33)
         Me.lblDrop.TabIndex = 16
@@ -80,11 +80,11 @@ Partial Class Form_Student_Drop
         'lblChoose
         '
         Me.lblChoose.AutoSize = True
-        Me.lblChoose.Font = New System.Drawing.Font("Corbel", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.lblChoose.ForeColor = System.Drawing.Color.Black
-        Me.lblChoose.Location = New System.Drawing.Point(164, 77)
+        Me.lblChoose.Font = New System.Drawing.Font("Corbel", 13.0!, System.Drawing.FontStyle.Bold)
+        Me.lblChoose.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(87, Byte), Integer))
+        Me.lblChoose.Location = New System.Drawing.Point(148, 76)
         Me.lblChoose.Name = "lblChoose"
-        Me.lblChoose.Size = New System.Drawing.Size(107, 19)
+        Me.lblChoose.Size = New System.Drawing.Size(119, 22)
         Me.lblChoose.TabIndex = 17
         Me.lblChoose.Text = "Course Name:"
         '
