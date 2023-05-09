@@ -1,7 +1,4 @@
-﻿Imports System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel
-Imports System.Data.OleDb
-Imports System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock
-Imports System.Windows.Forms.VisualStyles.VisualStyleElement
+﻿Imports System.Data.OleDb
 
 Namespace University_Application
     Public Class Professor

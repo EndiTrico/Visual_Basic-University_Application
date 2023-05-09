@@ -1,17 +1,4 @@
-﻿Imports System
-Imports System.Collections.Generic
-Imports System.ComponentModel
-Imports System.Data
-Imports System.Drawing
-Imports System.Drawing.Drawing2D
-Imports System.Linq
-Imports System.Text
-Imports System.Threading.Tasks
-Imports System.Windows.Forms
-Imports System.Windows.Forms.VisualStyles.VisualStyleElement
-Imports University_Application
-
-Partial Public Class Form_Student_Drop
+﻿Public Class Form_Student_Drop
     Inherits Form
 
     Private _studentID As Integer

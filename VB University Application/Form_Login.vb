@@ -1,15 +1,4 @@
-﻿Imports System
-Imports System.Collections.Generic
-Imports System.ComponentModel
-Imports System.Data
-Imports System.Drawing
-Imports System.Linq
-Imports System.Text
-Imports System.Threading.Tasks
-Imports System.Windows.Forms
-Imports University_Application
-
-Public Class Form_Login
+﻿Public Class Form_Login
     Inherits Form
 
     Private number As Integer

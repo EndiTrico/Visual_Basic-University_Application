@@ -1,17 +1,4 @@
-﻿Imports System
-Imports System.Collections.Generic
-Imports System.ComponentModel
-Imports System.Data
-Imports System.Drawing
-Imports System.Linq
-Imports System.Text
-Imports System.Threading.Tasks
-Imports System.Windows.Forms
-Imports System.Drawing.Drawing2D
-Imports System.Windows.Forms.VisualStyles.VisualStyleElement
-Imports University_Application
-
-Partial Public Class Form_Role
+﻿Public Class Form_Role
     Inherits Form
 
     Public Sub New()

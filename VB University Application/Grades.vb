@@ -1,11 +1,4 @@
-﻿Imports System
-Imports System.Collections.Generic
-Imports System.Data.OleDb
-Imports System.IO
-Imports System.Linq
-Imports System.Text
-Imports System.Threading.Tasks
-Imports System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel
+﻿Imports System.Data.OleDb
 
 Public Class Grades
     Private connection As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\Database_University.mdb"

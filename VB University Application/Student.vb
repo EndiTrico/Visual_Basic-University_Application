@@ -1,12 +1,4 @@
-﻿Imports System
-Imports System.Collections.Generic
-Imports System.IO
-Imports System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel
-Imports University_Application
-Imports System.Data.OleDb
-Imports System.Linq
-Imports System.Windows.Forms
-Imports System.Diagnostics
+﻿Imports System.Data.OleDb
 Imports VB_University_Application.University_Application
 
 Public Class Student

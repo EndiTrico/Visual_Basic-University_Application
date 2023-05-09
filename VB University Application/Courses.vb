@@ -1,7 +1,4 @@
-﻿Imports System
-Imports System.Collections.Generic
-Imports System.Data.OleDb
-Imports System.Text
+﻿Imports System.Data.OleDb
 
 Namespace University_Application
     Public Class Courses

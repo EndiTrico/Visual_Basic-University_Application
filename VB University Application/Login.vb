@@ -1,9 +1,4 @@
-﻿Imports System
-Imports System.Collections.Generic
-Imports System.Data.OleDb
-Imports System.Linq
-Imports System.Text
-Imports System.Threading.Tasks
+﻿Imports System.Data.OleDb
 
 Interface Login
     Function isUsernameAndPasswordValid(ByVal username As String, ByVal password As String) As OleDbDataReader

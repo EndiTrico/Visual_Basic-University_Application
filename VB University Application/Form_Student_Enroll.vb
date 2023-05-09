@@ -1,17 +1,4 @@
-﻿Imports System
-Imports System.Collections.Generic
-Imports System.ComponentModel
-Imports System.Data
-Imports System.Drawing
-Imports System.Drawing.Drawing2D
-Imports System.Linq
-Imports System.Text
-Imports System.Threading.Tasks
-Imports System.Windows.Forms
-Imports System.Windows.Forms.VisualStyles.VisualStyleElement
-Imports University_Application
-
-Public Class Form_Student_Enroll
+﻿Public Class Form_Student_Enroll
     Inherits Form
 
     Private _studentID As Integer
@@ -97,11 +84,11 @@ Public Class Form_Student_Enroll
         InitializeComponent()
         Me.StudentID = studentID
         Me.Name = name
-        Me.surname = surname
-        Me.username = username
-        Me.password = password
-        Me.major = major
-        Me.courses = courses
+        Me.Surname = surname
+        Me.Username = username
+        Me.Password = password
+        Me.Major = major
+        Me.Courses = courses
 
         For Each s As String In New Student(studentID, name, surname, username, password, major, courses).allCoursesExcludingStudentCourses()
             comboBoxEnroll.Items.Add(s)

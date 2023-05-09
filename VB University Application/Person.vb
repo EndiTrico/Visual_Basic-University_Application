@@ -1,10 +1,4 @@
-﻿Imports System
-Imports System.Collections.Generic
-Imports System.Linq
-Imports System.Text
-Imports System.Threading.Tasks
-
-Public MustInherit Class Person
+﻿Public MustInherit Class Person
     Private _id As Integer
     Private _name As String
     Private _surname As String
