@@ -73,12 +73,12 @@ Partial Class Form_Student_Enroll
         Me.lblEnroll.AutoSize = True
         Me.lblEnroll.Font = New System.Drawing.Font("Corbel", 20.0!, System.Drawing.FontStyle.Bold)
         Me.lblEnroll.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(87, Byte), Integer))
-        Me.lblEnroll.Location = New System.Drawing.Point(271, 7)
+        Me.lblEnroll.Location = New System.Drawing.Point(234, 7)
         Me.lblEnroll.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblEnroll.Name = "lblEnroll"
-        Me.lblEnroll.Size = New System.Drawing.Size(145, 33)
+        Me.lblEnroll.Size = New System.Drawing.Size(216, 33)
         Me.lblEnroll.TabIndex = 16
-        Me.lblEnroll.Text = "Enrollment"
+        Me.lblEnroll.Text = "Enroll in a Course"
         '
         'lblChoose
         '
