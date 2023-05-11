@@ -73,17 +73,30 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin.vb" />
     <Compile Include="Courses.vb" />
     <Compile Include="Database_UniversityDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Database_UniversityDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Form1.vb">
+    <Compile Include="Form_Admin.Designer.vb">
+      <DependentUpon>Form_Admin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Admin.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <Compile Include="Form_Admin_Add.Designer.vb">
+      <DependentUpon>Form_Admin_Add.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Admin_Add.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Splash.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Splash.Designer.vb">
+      <DependentUpon>Form_Splash.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form_Login.Designer.vb">
@@ -128,7 +141,15 @@
     <Compile Include="Form_Student_Enroll.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Form_Welcome.Designer.vb">
+      <DependentUpon>Form_Welcome.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Welcome.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Grades.vb" />
+    <Compile Include="InvalidInputException .vb" />
+    <Compile Include="InvalidLoginInfoException.vb" />
     <Compile Include="Login.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -150,6 +171,12 @@
     <Compile Include="Student.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Form_Admin.resx">
+      <DependentUpon>Form_Admin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Admin_Add.resx">
+      <DependentUpon>Form_Admin_Add.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_Login.resx">
       <DependentUpon>Form_Login.vb</DependentUpon>
     </EmbeddedResource>
@@ -162,6 +189,9 @@
     <EmbeddedResource Include="Form_Role.resx">
       <DependentUpon>Form_Role.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form_Splash.resx">
+      <DependentUpon>Form_Splash.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_Student.resx">
       <DependentUpon>Form_Student.vb</DependentUpon>
     </EmbeddedResource>
@@ -170,6 +200,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Student_Enroll.resx">
       <DependentUpon>Form_Student_Enroll.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Welcome.resx">
+      <DependentUpon>Form_Welcome.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
