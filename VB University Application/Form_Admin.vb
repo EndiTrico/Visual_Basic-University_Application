@@ -7,7 +7,6 @@ Imports System.Linq
 Imports System.Text
 Imports System.Threading.Tasks
 Imports System.Windows.Forms
-Imports University_Application
 
 Public Class Form_Admin
     Inherits Form

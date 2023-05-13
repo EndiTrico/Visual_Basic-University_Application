@@ -9,8 +9,7 @@ Imports System.Text
 Imports System.Threading.Tasks
 Imports System.Windows.Forms
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement
-Imports University_Application
-
+Imports VB_University_Application.University_Application
 
 Public Class Form_Admin_Add
     Inherits Form
