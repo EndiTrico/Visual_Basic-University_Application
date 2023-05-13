@@ -134,7 +134,7 @@ Partial Class Form_Role
         Me.pictureBoxLogo.Location = New System.Drawing.Point(317, 0)
         Me.pictureBoxLogo.Name = "pictureBoxLogo"
         Me.pictureBoxLogo.Size = New System.Drawing.Size(160, 113)
-        Me.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
         Me.pictureBoxLogo.TabIndex = 9
         Me.pictureBoxLogo.TabStop = False
         '

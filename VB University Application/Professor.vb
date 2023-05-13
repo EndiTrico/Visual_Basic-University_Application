@@ -20,15 +20,6 @@ Public Class Professor
         End Set
     End Property
 
-    Public Property ActiveCourse As String
-        Get
-            Return _activeCourse
-        End Get
-        Set(value As String)
-            _activeCourse = value
-        End Set
-    End Property
-
     Public Shared Property LoggedProfessors As List(Of Professor)
         Get
             Return _loggedProfessors
@@ -44,6 +35,15 @@ Public Class Professor
         End Get
         Set(value As Integer)
             _activeCourseId = value
+        End Set
+    End Property
+
+    Public Property ActiveCourse As String
+        Get
+            Return _activeCourse
+        End Get
+        Set(value As String)
+            _activeCourse = value
         End Set
     End Property
 
@@ -76,7 +76,7 @@ Public Class Professor
 
         Dim con As OleDbConnection = New OleDbConnection(connectionString)
 
-        If con.State <> Data.ConnectionState.Open Then
+        If con.State <> ConnectionState.Open Then
             con.Open()
         End If
 
@@ -88,7 +88,6 @@ Public Class Professor
 
         Dim courseReader As OleDbDataReader = cmd.ExecuteReader()
 
-
         If courseReader.HasRows Then
             While courseReader.Read()
                 coursesIds.Add(courseReader("Course_ID").ToString())
@@ -97,7 +96,6 @@ Public Class Professor
 
         End If
     End Sub
-
 
     ' Fuction to Verify if the Entered Credentials are Valid or Not
     Public Function isUsernameAndPasswordValid(username As String, password As String) As OleDbDataReader Implements Login.isUsernameAndPasswordValid
@@ -118,7 +116,6 @@ Public Class Professor
             Throw New InvalidLoginInfoException("Username and Password do not match!")
         End If
     End Function
-
 
     ' Fuction to Get the Most Recently Logged Professor
     Public Shared Function getRecentProfessor() As Professor
