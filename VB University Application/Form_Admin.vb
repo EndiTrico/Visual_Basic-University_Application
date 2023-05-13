@@ -1,14 +1,4 @@
-﻿Imports System
-Imports System.Collections.Generic
-Imports System.ComponentModel
-Imports System.Data
-Imports System.Drawing
-Imports System.Linq
-Imports System.Text
-Imports System.Threading.Tasks
-Imports System.Windows.Forms
-
-Public Class Form_Admin
+﻿Public Class Form_Admin
     Inherits Form
 
     Private admin As Admin
@@ -18,53 +8,52 @@ Public Class Form_Admin
         admin = New Admin()
     End Sub
 
-    Private Sub Form_Admin_Load(ByVal sender As Object, ByVal e As EventArgs)
+    Private Sub Form_Admin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
     End Sub
 
-    Private Sub btnExit_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnExit.Click
-        Me.Close()
+    Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
+        Close()
     End Sub
 
-    Private Sub btnBack_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnBack.Click
+    Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
         Dim role As Form_Role = New Form_Role()
-        Me.Hide()
+        Hide()
         role.Show()
     End Sub
 
-    Private Sub btnAddProfessor_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnAddProfessor.Click
+    Private Sub btnAddProfessor_Click(sender As Object, e As EventArgs) Handles btnAddProfessor.Click
         Dim child1 As Form_Admin_Add = New Form_Admin_Add(1, admin)
-        Me.Hide()
+        Hide()
         child1.Show()
     End Sub
 
-    Private Sub btnAddStudent_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnAddStudent.Click
+    Private Sub btnAddStudent_Click(sender As Object, e As EventArgs) Handles btnAddStudent.Click
         Dim child1 As Form_Admin_Add = New Form_Admin_Add(2, admin)
-        Me.Hide()
+        Hide()
         child1.Show()
     End Sub
 
-    Private Sub btnAddCourse_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnAddCourse.Click
+    Private Sub btnAddCourse_Click(sender As Object, e As EventArgs) Handles btnAddCourse.Click
         Dim child1 As Form_Admin_Add = New Form_Admin_Add(3, admin)
-        Me.Hide()
+        Hide()
         child1.Show()
     End Sub
 
-    Private Sub btnRemoveProfessor_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnRemoveProfessor.Click
-
+    Private Sub btnRemoveProfessor_Click(sender As Object, e As EventArgs) Handles btnRemoveProfessor.Click
         Dim child1 As Form_Admin_Remove = New Form_Admin_Remove(4, admin)
-        Me.Hide()
+        Hide()
         child1.Show()
     End Sub
 
-    Private Sub btnRemoveStudent_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnRemoveStudent.Click
+    Private Sub btnRemoveStudent_Click(sender As Object, e As EventArgs) Handles btnRemoveStudent.Click
         Dim child1 As Form_Admin_Remove = New Form_Admin_Remove(5, admin)
-        Me.Hide()
+        Hide()
         child1.Show()
     End Sub
 
-    Private Sub btnRemoveCourse_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnRemoveCourse.Click
+    Private Sub btnRemoveCourse_Click(sender As Object, e As EventArgs) Handles btnRemoveCourse.Click
         Dim child1 As Form_Admin_Remove = New Form_Admin_Remove(6, admin)
-        Me.Hide()
+        Hide()
         child1.Show()
     End Sub
 End Class

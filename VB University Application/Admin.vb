@@ -1,16 +1,12 @@
-﻿Imports System
-Imports System.Collections.Generic
-Imports System.Data.OleDb
-Imports System.IO
-Imports System.Linq
-Imports System.Text
-Imports System.Threading.Tasks
+﻿Imports System.Data.OleDb
 Imports VB_University_Application.University_Application
 
 Public Class Admin
+    Private ReadOnly connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\Database_University.mdb"
+
     Private _username As String = "admin"
     Private _password As String = "admin123"
-    Private connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\Database_University.mdb"
+
     Public professorList As List(Of Professor) = New List(Of Professor)()
     Public studentList As List(Of Student) = New List(Of Student)()
     Public coursesList As List(Of Courses) = New List(Of Courses)()
@@ -34,22 +30,21 @@ Public Class Admin
     End Property
 
     Public Sub New()
-        Me.readDatabase()
+        readDatabase()
     End Sub
 
-    Public Function isUsernameAndPasswordValid(ByVal username As String, ByVal password As String) As Boolean
-        If username.Equals(username) AndAlso password.Equals(password) Then Return True
+    ' Function to Validate If the Entered Credentials are Valid
+    Public Function isUsernameAndPasswordValid(username As String, password As String) As Boolean
+        If username.Equals(username) And password.Equals(password) Then Return True
         Throw New InvalidLoginInfoException("Username and Password do not match!")
     End Function
 
-    Public Sub addProfessor(ByVal professor As Professor)
-        Using connection As OleDbConnection = New OleDbConnection(connectionString)
+    ' Sub Procedure to Add the Professor to the Database
+    Public Sub addProfessor(professor As Professor)
+        Using connection As New OleDbConnection(connectionString)
+            connection.Open()
 
-            If connection.State <> System.Data.ConnectionState.Open Then
-                connection.Open()
-            End If
-
-            Using professorTable As OleDbCommand = New OleDbCommand("INSERT INTO Professors ([First_Name], [Last_Name], [Username], [Password]) VALUES (?, ?, ?, ?)", connection)
+            Using professorTable As New OleDbCommand("INSERT INTO Professors ([First_Name], [Last_Name], [Username], [Password]) VALUES (?, ?, ?, ?)", connection)
                 professorTable.Parameters.AddWithValue("@a", professor.Name)
                 professorTable.Parameters.AddWithValue("@b", professor.Surname)
                 professorTable.Parameters.AddWithValue("@c", professor.Username)
@@ -61,30 +56,25 @@ Public Class Admin
         readDatabase()
     End Sub
 
-    Public Sub removeProfessor(ByVal professor As Professor)
-        professorList.RemoveAt(professorList.IndexOf(professor))
-
-        Using connection As OleDbConnection = New OleDbConnection(connectionString)
-
-            If connection.State <> System.Data.ConnectionState.Open Then
-                connection.Open()
-            End If
-
-            Using professorsTable As OleDbCommand = New OleDbCommand("DELETE FROM Professors WHERE Professor_ID = ?", connection)
+    ' Sub Procedure to Remove Professor from the Database
+    Public Sub removeProfessor(professor As Professor)
+        Using connection As New OleDbConnection(connectionString)
+            connection.Open()
+            Using professorsTable As New OleDbCommand("DELETE FROM Professors WHERE Professor_ID = ?", connection)
                 professorsTable.Parameters.AddWithValue("@id", professor.Id)
                 Dim rowsAffected As Integer = professorsTable.ExecuteNonQuery()
             End Using
         End Using
+
+        readDatabase()
     End Sub
 
-    Public Sub addStudent(ByVal student As Student)
-        Using connection As OleDbConnection = New OleDbConnection(connectionString)
+    ' Sub Procedure to Add the Student to the Database
+    Public Sub addStudent(student As Student)
+        Using connection As New OleDbConnection(connectionString)
+            connection.Open()
 
-            If connection.State <> System.Data.ConnectionState.Open Then
-                connection.Open()
-            End If
-
-            Using studentsTable As OleDbCommand = New OleDbCommand("INSERT INTO Students ([First_Name], [Last_Name], [Username], [Password], [Major]) VALUES (@FirstName, @LastName, @Username, @Password, @Major)", connection)
+            Using studentsTable As New OleDbCommand("INSERT INTO Students ([First_Name], [Last_Name], [Username], [Password], [Major]) VALUES (@FirstName, @LastName, @Username, @Password, @Major)", connection)
                 studentsTable.Parameters.AddWithValue("@FirstName", student.Name)
                 studentsTable.Parameters.AddWithValue("@LastName", student.Surname)
                 studentsTable.Parameters.AddWithValue("@Username", student.Username)
@@ -97,39 +87,35 @@ Public Class Admin
         readDatabase()
     End Sub
 
-    Public Sub removeStudent(ByVal student As Student)
-        studentList.RemoveAt(studentList.IndexOf(student))
+    ' Sub Procedure to Remove Student from the Database
+    Public Sub removeStudent(student As Student)
+        Using connection As New OleDbConnection(connectionString)
+            connection.Open()
 
-        Using connection As OleDbConnection = New OleDbConnection(connectionString)
-
-            If connection.State <> System.Data.ConnectionState.Open Then
-                connection.Open()
-            End If
-
-            Using studentsTable As OleDbCommand = New OleDbCommand("DELETE FROM Students WHERE Student_ID = @id", connection)
+            Using studentsTable As New OleDbCommand("DELETE FROM Students WHERE Student_ID = @id", connection)
                 studentsTable.Parameters.AddWithValue("@id", student.Id)
                 Dim rowsAffected As Integer = studentsTable.ExecuteNonQuery()
             End Using
         End Using
+
+        readDatabase()
     End Sub
 
-    Public Sub addCourse(ByVal course As Courses, ByVal professorID As Integer)
+    ' Sub Procedure to Add the Course to the Database
+    Public Sub addCourse(course As Courses, professorID As Integer)
         Dim courseId As Integer
 
-        Using connection As OleDbConnection = New OleDbConnection(connectionString)
+        Using connection As New OleDbConnection(connectionString)
+            connection.Open()
 
-            If connection.State <> System.Data.ConnectionState.Open Then
-                connection.Open()
-            End If
-
-            Using coursesTable As OleDbCommand = New OleDbCommand("INSERT INTO Courses (Course_Name, Credits, Hours) VALUES (?, ?, ?)", connection)
+            Using coursesTable As New OleDbCommand("INSERT INTO Courses (Course_Name, Credits, Hours) VALUES (?, ?, ?)", connection)
                 coursesTable.Parameters.AddWithValue("@a", course.CourseName)
                 coursesTable.Parameters.AddWithValue("@b", course.Credits)
                 coursesTable.Parameters.AddWithValue("@c", course.Hours)
                 Dim row As Integer = coursesTable.ExecuteNonQuery()
             End Using
 
-            Using coursesTable1 As OleDbCommand = New OleDbCommand("SELECT Course_ID from Courses WHERE Course_Name = ?", connection)
+            Using coursesTable1 As New OleDbCommand("SELECT Course_ID from Courses WHERE Course_Name = ?", connection)
                 coursesTable1.Parameters.AddWithValue("@CourseName", course.CourseName)
 
                 Using reader As OleDbDataReader = coursesTable1.ExecuteReader()
@@ -138,7 +124,7 @@ Public Class Admin
                 End Using
             End Using
 
-            Using professorsStudentsTable As OleDbCommand = New OleDbCommand("INSERT INTO Professors_Courses Values (?, ?)", connection)
+            Using professorsStudentsTable As New OleDbCommand("INSERT INTO Professors_Courses Values (?, ?)", connection)
                 professorsStudentsTable.Parameters.AddWithValue("@a", professorID)
                 professorsStudentsTable.Parameters.AddWithValue("@b", courseId)
                 Dim rowsAffected As Integer = professorsStudentsTable.ExecuteNonQuery()
@@ -148,27 +134,29 @@ Public Class Admin
         readDatabase()
     End Sub
 
-    Public Sub removeCourse(ByVal course As Courses)
-        Using connection As OleDbConnection = New OleDbConnection(connectionString)
+    ' Sub Procedure to Remove Professor from the Database
+    Public Sub removeCourse(course As Courses)
+        Using connection As New OleDbConnection(connectionString)
+            connection.Open()
 
-            If connection.State <> System.Data.ConnectionState.Open Then
-                connection.Open()
-            End If
-
-            Using coursesTable As OleDbCommand = New OleDbCommand("DELETE FROM Courses WHERE Course_ID = ?", connection)
+            Using coursesTable As New OleDbCommand("DELETE FROM Courses WHERE Course_ID = ?", connection)
                 coursesTable.Parameters.AddWithValue("@id", course.Id)
                 Dim rowsAffected As Integer = coursesTable.ExecuteNonQuery()
             End Using
         End Using
+
+        readDatabase()
     End Sub
 
+    ' Read the Tables Students, Professors, Courses from the Database and Save them to the List
     Private Sub readDatabase()
         studentList = New Student().readStudents()
         professorList = New Professor().readProfessors()
         coursesList = New Courses().readCourses()
     End Sub
 
+    ' Fuction to Get a string Representation of Admin
     Public Overrides Function ToString() As String
-        Return MyBase.ToString()
+        Return Username.ToString & ", " & Password.ToString()
     End Function
 End Class

@@ -50,7 +50,7 @@
         End Set
     End Property
 
-    Public Sub New(ByVal id As Integer, ByVal name As String, ByVal surname As String, ByVal username As String, ByVal password As String)
+    Public Sub New(id As Integer, name As String, surname As String, username As String, password As String)
         Me.Id = id
         Me.Name = name
         Me.Surname = surname
@@ -61,7 +61,8 @@
     Public Sub New()
     End Sub
 
+    ' Fuction to Get a String Representation of Person
     Public Overrides Function ToString() As String
-        Return Me.Id & "," & Me.Name & "," + Me.Surname & "," + Me.Username & "," + Me.Password
+        Return Id & "," & Name & "," + Surname & "," + Username & "," + Password
     End Function
 End Class

@@ -1,4 +1,6 @@
-﻿Public Class Form_Professor
+﻿Imports VB_University_Application.University_Application
+
+Public Class Form_Professor
     Private Sub Form_Professor_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Label1.Text = $"Welcome Professor {Professor.getRecentProfessor().Name} !"
 
@@ -9,8 +11,8 @@
 
     Private Sub button_Grades_Click(sender As Object, e As EventArgs) Handles button_Grades.Click
         If comboBox_Course.SelectedIndex <> -1 Then
-            Dim form As Form_Professor_AddGrades = New Form_Professor_AddGrades()
-            Me.Hide()
+            Dim form As New Form_Professor_AddGrades()
+            Hide()
             form.Show()
         Else
             MessageBox.Show("You have not selected a course!", "Error", MessageBoxButtons.OK, MessageBoxIcon.[Error])
@@ -59,7 +61,7 @@
         RichTextBox1.Clear()
 
         If comboBox_Course.SelectedIndex <> -1 Then
-            Dim scores As List(Of Double) = Professor.getRecentProfessor().getScores()
+            Dim scores As List(Of Integer) = Professor.getRecentProfessor().getScores()
             Dim students As List(Of Student) = Professor.getRecentProfessor().getStudents()
 
             If scores.Count = 0 Then
@@ -80,7 +82,7 @@
         RichTextBox1.Clear()
 
         If comboBox_Course.SelectedIndex <> -1 Then
-            Dim scores As List(Of Double) = Professor.getRecentProfessor().getScores()
+            Dim scores As List(Of Integer) = Professor.getRecentProfessor().getScores()
             Dim students As List(Of Student) = Professor.getRecentProfessor().getStudents()
 
             If scores.Count = 0 Then
@@ -101,7 +103,7 @@
         RichTextBox1.Clear()
 
         If comboBox_Course.SelectedIndex <> -1 Then
-            Dim scores As List(Of Double) = Professor.getRecentProfessor().getScores()
+            Dim scores As List(Of Integer) = Professor.getRecentProfessor().getScores()
             Dim students As List(Of Student) = Professor.getRecentProfessor().getStudents()
 
             If scores.Count = 0 Then
@@ -122,7 +124,7 @@
         RichTextBox1.Clear()
 
         If comboBox_Course.SelectedIndex <> -1 Then
-            Dim scores As List(Of Double) = Professor.getRecentProfessor().getScores()
+            Dim scores As List(Of Integer) = Professor.getRecentProfessor().getScores()
             Dim students As List(Of Student) = Professor.getRecentProfessor().getStudents()
 
             If scores.Count = 0 Then
@@ -145,7 +147,7 @@
     End Sub
 
     Private Sub button_Back_Click(sender As Object, e As EventArgs) Handles button_Back.Click
-        Dim role As Form_LogIn = New Form_LogIn()
+        Dim role As Form_Role = New Form_Role()
         Me.Hide()
         role.Show()
     End Sub

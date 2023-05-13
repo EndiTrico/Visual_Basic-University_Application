@@ -5,7 +5,7 @@
         InitializeComponent()
     End Sub
 
-    Private Sub Form_Welcome_Load(ByVal sender As Object, ByVal e As EventArgs)
+    Private Sub Form_Welcome_Load(sender As Object, e As EventArgs)
         For Each ctl As Control In Me.Controls
             Dim ctlMDI As MdiClient
 
@@ -19,11 +19,11 @@
         Next
     End Sub
 
-    Private Sub exitToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles exitToolStripMenuItem.Click
+    Private Sub exitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles exitToolStripMenuItem.Click
         Application.[Exit]()
     End Sub
 
-    Private Sub loginToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles loginToolStripMenuItem.Click
+    Private Sub loginToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles loginToolStripMenuItem.Click
         Dim child As Form_Role = New Form_Role()
         child.MdiParent = Me
         child.Show()

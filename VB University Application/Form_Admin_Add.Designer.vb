@@ -22,6 +22,7 @@ Partial Class Form_Admin_Add
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form_Admin_Add))
         Me.lblFirstName = New System.Windows.Forms.Label()
         Me.textBox1 = New System.Windows.Forms.TextBox()
         Me.btnAdd = New System.Windows.Forms.Button()
@@ -34,7 +35,7 @@ Partial Class Form_Admin_Add
         Me.label6 = New System.Windows.Forms.Label()
         Me.comboBox1 = New System.Windows.Forms.ComboBox()
         Me.panel1 = New System.Windows.Forms.Panel()
-        Me.btnClose = New System.Windows.Forms.Button()
+        Me.btnExit = New System.Windows.Forms.Button()
         Me.lblWelcome = New System.Windows.Forms.Label()
         Me.btnBack = New System.Windows.Forms.Button()
         Me.panel1.SuspendLayout()
@@ -48,7 +49,7 @@ Partial Class Form_Admin_Add
         Me.lblFirstName.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(87, Byte), Integer))
         Me.lblFirstName.Location = New System.Drawing.Point(13, 82)
         Me.lblFirstName.Name = "lblFirstName"
-        Me.lblFirstName.Size = New System.Drawing.Size(69, 27)
+        Me.lblFirstName.Size = New System.Drawing.Size(57, 22)
         Me.lblFirstName.TabIndex = 0
         Me.lblFirstName.Text = "label1"
         '
@@ -58,7 +59,7 @@ Partial Class Form_Admin_Add
         Me.textBox1.ForeColor = System.Drawing.Color.Black
         Me.textBox1.Location = New System.Drawing.Point(163, 75)
         Me.textBox1.Name = "textBox1"
-        Me.textBox1.Size = New System.Drawing.Size(269, 34)
+        Me.textBox1.Size = New System.Drawing.Size(269, 29)
         Me.textBox1.TabIndex = 1
         '
         'btnAdd
@@ -83,7 +84,7 @@ Partial Class Form_Admin_Add
         Me.textBox2.ForeColor = System.Drawing.Color.Black
         Me.textBox2.Location = New System.Drawing.Point(163, 115)
         Me.textBox2.Name = "textBox2"
-        Me.textBox2.Size = New System.Drawing.Size(269, 34)
+        Me.textBox2.Size = New System.Drawing.Size(269, 29)
         Me.textBox2.TabIndex = 4
         '
         'lblLast_Name
@@ -94,7 +95,7 @@ Partial Class Form_Admin_Add
         Me.lblLast_Name.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(87, Byte), Integer))
         Me.lblLast_Name.Location = New System.Drawing.Point(13, 122)
         Me.lblLast_Name.Name = "lblLast_Name"
-        Me.lblLast_Name.Size = New System.Drawing.Size(69, 27)
+        Me.lblLast_Name.Size = New System.Drawing.Size(57, 22)
         Me.lblLast_Name.TabIndex = 3
         Me.lblLast_Name.Text = "label2"
         '
@@ -104,7 +105,7 @@ Partial Class Form_Admin_Add
         Me.textBox3.ForeColor = System.Drawing.Color.Black
         Me.textBox3.Location = New System.Drawing.Point(163, 155)
         Me.textBox3.Name = "textBox3"
-        Me.textBox3.Size = New System.Drawing.Size(269, 34)
+        Me.textBox3.Size = New System.Drawing.Size(269, 29)
         Me.textBox3.TabIndex = 6
         '
         'lbl3
@@ -115,7 +116,7 @@ Partial Class Form_Admin_Add
         Me.lbl3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(87, Byte), Integer))
         Me.lbl3.Location = New System.Drawing.Point(13, 158)
         Me.lbl3.Name = "lbl3"
-        Me.lbl3.Size = New System.Drawing.Size(69, 27)
+        Me.lbl3.Size = New System.Drawing.Size(57, 22)
         Me.lbl3.TabIndex = 5
         Me.lbl3.Text = "label3"
         '
@@ -125,7 +126,7 @@ Partial Class Form_Admin_Add
         Me.textBox4.ForeColor = System.Drawing.Color.Black
         Me.textBox4.Location = New System.Drawing.Point(163, 194)
         Me.textBox4.Name = "textBox4"
-        Me.textBox4.Size = New System.Drawing.Size(269, 34)
+        Me.textBox4.Size = New System.Drawing.Size(269, 29)
         Me.textBox4.TabIndex = 8
         '
         'lbl4
@@ -136,7 +137,7 @@ Partial Class Form_Admin_Add
         Me.lbl4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(87, Byte), Integer))
         Me.lbl4.Location = New System.Drawing.Point(13, 197)
         Me.lbl4.Name = "lbl4"
-        Me.lbl4.Size = New System.Drawing.Size(70, 27)
+        Me.lbl4.Size = New System.Drawing.Size(58, 22)
         Me.lbl4.TabIndex = 7
         Me.lbl4.Text = "label4"
         '
@@ -148,26 +149,26 @@ Partial Class Form_Admin_Add
         Me.label6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(87, Byte), Integer))
         Me.label6.Location = New System.Drawing.Point(13, 236)
         Me.label6.Name = "label6"
-        Me.label6.Size = New System.Drawing.Size(70, 27)
+        Me.label6.Size = New System.Drawing.Size(58, 22)
         Me.label6.TabIndex = 11
         Me.label6.Text = "label6"
         '
         'comboBox1
         '
         Me.comboBox1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.comboBox1.Font = New System.Drawing.Font("Corbel", 12.75!)
+        Me.comboBox1.Font = New System.Drawing.Font("Corbel", 12.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.comboBox1.ForeColor = System.Drawing.Color.Black
         Me.comboBox1.FormattingEnabled = True
         Me.comboBox1.Items.AddRange(New Object() {"Law", "Political Science", "Psychology", "Accounting", "Business Administration", "Business Informatics", "Economics", "Finance", "Management", "Business Economics", "Marketing", "Architecture", "Computer Science", "Information Systems", "Telecommunication and Network Engineering"})
         Me.comboBox1.Location = New System.Drawing.Point(163, 233)
         Me.comboBox1.Name = "comboBox1"
-        Me.comboBox1.Size = New System.Drawing.Size(269, 34)
+        Me.comboBox1.Size = New System.Drawing.Size(269, 29)
         Me.comboBox1.TabIndex = 16
         '
         'panel1
         '
         Me.panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(87, Byte), Integer))
-        Me.panel1.Controls.Add(Me.btnClose)
+        Me.panel1.Controls.Add(Me.btnExit)
         Me.panel1.Controls.Add(Me.lblWelcome)
         Me.panel1.Controls.Add(Me.btnBack)
         Me.panel1.Location = New System.Drawing.Point(-3, 0)
@@ -175,23 +176,23 @@ Partial Class Form_Admin_Add
         Me.panel1.Size = New System.Drawing.Size(447, 55)
         Me.panel1.TabIndex = 17
         '
-        'btnClose
+        'btnExit
         '
-        Me.btnClose.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(87, Byte), Integer))
-        Me.btnClose.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnClose.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke
-        Me.btnClose.FlatAppearance.BorderSize = 0
-        Me.btnClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.WhiteSmoke
-        Me.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
-        Me.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnClose.Font = New System.Drawing.Font("Corbel", 13.0!, System.Drawing.FontStyle.Bold)
-        Me.btnClose.ForeColor = System.Drawing.Color.Snow
-        Me.btnClose.Location = New System.Drawing.Point(407, 0)
-        Me.btnClose.Name = "btnClose"
-        Me.btnClose.Size = New System.Drawing.Size(40, 40)
-        Me.btnClose.TabIndex = 23
-        Me.btnClose.Text = "X"
-        Me.btnClose.UseVisualStyleBackColor = False
+        Me.btnExit.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(87, Byte), Integer))
+        Me.btnExit.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnExit.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke
+        Me.btnExit.FlatAppearance.BorderSize = 0
+        Me.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.WhiteSmoke
+        Me.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
+        Me.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnExit.Font = New System.Drawing.Font("Corbel", 13.0!, System.Drawing.FontStyle.Bold)
+        Me.btnExit.ForeColor = System.Drawing.Color.Snow
+        Me.btnExit.Location = New System.Drawing.Point(407, 0)
+        Me.btnExit.Name = "btnExit"
+        Me.btnExit.Size = New System.Drawing.Size(40, 40)
+        Me.btnExit.TabIndex = 23
+        Me.btnExit.Text = "X"
+        Me.btnExit.UseVisualStyleBackColor = False
         '
         'lblWelcome
         '
@@ -224,7 +225,7 @@ Partial Class Form_Admin_Add
         '
         'Form_Admin_Add
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 28.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 21.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.WhiteSmoke
         Me.ClientSize = New System.Drawing.Size(444, 319)
@@ -242,6 +243,7 @@ Partial Class Form_Admin_Add
         Me.Controls.Add(Me.btnAdd)
         Me.Font = New System.Drawing.Font("Segoe UI", 12.0!)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Form_Admin_Add"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.panel1.ResumeLayout(False)
@@ -262,7 +264,7 @@ Partial Class Form_Admin_Add
     Friend WithEvents lblWelcome As Label
     Friend WithEvents comboBox1 As ComboBox
     Friend WithEvents panel1 As Panel
-    Friend WithEvents btnClose As Button
+    Friend WithEvents btnExit As Button
     Friend WithEvents btnBack As Button
     Friend WithEvents label6 As Label
 End Class

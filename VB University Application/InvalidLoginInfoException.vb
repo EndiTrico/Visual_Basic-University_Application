@@ -7,7 +7,7 @@ Imports System.Threading.Tasks
 Public Class InvalidLoginInfoException
     Inherits Exception
 
-    Public Sub New(ByVal message As String)
+    Public Sub New(message As String)
         MyBase.New("Invalid Credentials!")
     End Sub
 End Class

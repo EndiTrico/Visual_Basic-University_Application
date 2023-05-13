@@ -30,44 +30,64 @@ Partial Class Form_Welcome
         Me.exitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
+        '
+        'MenuStrip1
+        '
         Me.MenuStrip1.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.MenuStrip1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold)
+        Me.MenuStrip1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold)
         Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.optionsToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
-        Me.MenuStrip1.Name = "menuStrip1"
+        Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(5, 2, 0, 2)
         Me.MenuStrip1.Size = New System.Drawing.Size(944, 27)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "menuStrip1"
+        '
+        'optionsToolStripMenuItem
+        '
         Me.optionsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.newToolStripMenuItem, Me.exitToolStripMenuItem})
-        Me.optionsToolStripMenuItem.Font = New System.Drawing.Font("Corbel", 12.0F, System.Drawing.FontStyle.Bold)
-        Me.optionsToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb((CInt(((CByte((0)))))), (CInt(((CByte((34)))))), (CInt(((CByte((87)))))))
+        Me.optionsToolStripMenuItem.Font = New System.Drawing.Font("Corbel", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.optionsToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(87, Byte), Integer))
         Me.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem"
         Me.optionsToolStripMenuItem.Size = New System.Drawing.Size(101, 23)
         Me.optionsToolStripMenuItem.Text = "Application"
+        '
+        'newToolStripMenuItem
+        '
         Me.newToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.loginToolStripMenuItem})
-        Me.newToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb((CInt(((CByte((0)))))), (CInt(((CByte((34)))))), (CInt(((CByte((87)))))))
+        Me.newToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(87, Byte), Integer))
         Me.newToolStripMenuItem.Name = "newToolStripMenuItem"
-        Me.newToolStripMenuItem.Size = New System.Drawing.Size(180, 24)
+        Me.newToolStripMenuItem.Size = New System.Drawing.Size(110, 24)
         Me.newToolStripMenuItem.Text = "New"
-        Me.loginToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb((CInt(((CByte((0)))))), (CInt(((CByte((34)))))), (CInt(((CByte((87)))))))
+        '
+        'loginToolStripMenuItem
+        '
+        Me.loginToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(87, Byte), Integer))
         Me.loginToolStripMenuItem.Name = "loginToolStripMenuItem"
         Me.loginToolStripMenuItem.Size = New System.Drawing.Size(213, 24)
         Me.loginToolStripMenuItem.Text = "Enter in the System"
-        Me.exitToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb((CInt(((CByte((0)))))), (CInt(((CByte((34)))))), (CInt(((CByte((87)))))))
+        '
+        'exitToolStripMenuItem
+        '
+        Me.exitToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(87, Byte), Integer))
         Me.exitToolStripMenuItem.Name = "exitToolStripMenuItem"
-        Me.exitToolStripMenuItem.Size = New System.Drawing.Size(180, 24)
+        Me.exitToolStripMenuItem.Size = New System.Drawing.Size(110, 24)
         Me.exitToolStripMenuItem.Text = "Exit"
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0F, 15.0F)
+        '
+        'Form_Welcome
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.FromArgb((CInt(((CByte((0)))))), (CInt(((CByte((34)))))), (CInt(((CByte((87)))))))
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(87, Byte), Integer))
+        Me.BackgroundImage = Global.VB_University_Application.My.Resources.Resources.Empire_State_College_Blue_Logo
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(944, 522)
         Me.Controls.Add(Me.MenuStrip1)
         Me.DoubleBuffered = True
-        Me.Font = New System.Drawing.Font("Corbel", 9.75F, (CType(((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic)), System.Drawing.FontStyle)), System.Drawing.GraphicsUnit.Point, (CByte((0))))
+        Me.Font = New System.Drawing.Font("Corbel", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.IsMdiContainer = True
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
@@ -78,6 +98,7 @@ Partial Class Form_Welcome
         Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
+
     End Sub
 
     Friend WithEvents MenuStrip1 As MenuStrip

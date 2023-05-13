@@ -82,7 +82,7 @@
         Next
     End Sub
 
-    Public Sub New(ByVal studentID As Integer, ByVal name As String, ByVal surname As String, ByVal username As String, ByVal password As String, ByVal major As String, ByVal courses As List(Of String))
+    Public Sub New(studentID As Integer, name As String, surname As String, username As String, password As String, major As String, courses As List(Of String))
         InitializeComponent()
         Me.StudentID = studentID
         Me.Name = name
@@ -97,17 +97,17 @@
         Next
     End Sub
 
-    Private Sub btnBack_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnBack.Click
+    Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
         Dim student As Form_Student = New Form_Student(StudentID, Name, Surname, Username, Password, Major, Courses)
         Me.Hide()
         student.Show()
     End Sub
 
-    Private Sub btnExit_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnExit.Click
+    Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
         Me.Close()
     End Sub
 
-    Private Sub btnDrop_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnDrop.Click
+    Private Sub btnDrop_Click(sender As Object, e As EventArgs) Handles btnDrop.Click
         If comboBoxDrop.SelectedIndex = -1 Then
             MessageBox.Show("You Need to Select a Course!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.[Error])
         Else

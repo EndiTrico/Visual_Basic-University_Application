@@ -1,19 +1,21 @@
-﻿Public Class Form_Login
+﻿Imports VB_University_Application.University_Application
+
+Public Class Form_Login
     Inherits Form
 
     Private number As Integer
 
-    Public Sub New(ByVal number As Integer)
+    Public Sub New(number As Integer)
         Me.number = number
         InitializeComponent()
-        Me.label_Role_Name()
+        label_Role_Name()
     End Sub
 
     Public Sub New()
         InitializeComponent()
     End Sub
 
-    Private Sub btnLogIn_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnLogIn.Click
+    Private Sub btnLogIn_Click(sender As Object, e As EventArgs) Handles btnLogIn.Click
         If txtBoxPassword.TextLength = 0 OrElse txtBoxUsername.TextLength = 0 Then
             MessageBox.Show("Enter Username and Password!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.[Error])
         Else
@@ -59,7 +61,7 @@
         End If
     End Sub
 
-    Private Sub CheckBoxShow_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles checkBoxShow.CheckedChanged
+    Private Sub CheckBoxShow_CheckedChanged(sender As Object, e As EventArgs) Handles checkBoxShow.CheckedChanged
         If checkBoxShow.Checked Then
             txtBoxPassword.UseSystemPasswordChar = False
         Else
@@ -67,9 +69,9 @@
         End If
     End Sub
 
-    Private Sub btnBack_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnBack.Click
+    Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
         Dim role As Form_Role = New Form_Role()
-        Me.Hide()
+        Hide()
         role.Show()
     End Sub
 
@@ -85,7 +87,7 @@
         End If
     End Sub
 
-    Private Sub btnExit_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnExit.Click
-        Me.Close()
+    Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
+        Close()
     End Sub
 End Class

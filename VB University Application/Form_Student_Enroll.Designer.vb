@@ -22,6 +22,7 @@ Partial Class Form_Student_Enroll
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form_Student_Enroll))
         Me.btnExit = New System.Windows.Forms.Button()
         Me.btnBack = New System.Windows.Forms.Button()
         Me.lblEnroll = New System.Windows.Forms.Label()
@@ -149,6 +150,7 @@ Partial Class Form_Student_Enroll
         Me.Controls.Add(Me.btnBack)
         Me.Controls.Add(Me.pictureBoxSUNYLogo)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "Form_Student_Enroll"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

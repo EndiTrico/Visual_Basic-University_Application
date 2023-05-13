@@ -1,4 +1,6 @@
-﻿Public Class Form_Professor_AddGrades
+﻿Imports VB_University_Application.University_Application
+
+Public Class Form_Professor_AddGrades
     Private Sub buttonExit_Click(sender As Object, e As EventArgs) Handles buttonExit.Click
         Professor.LoggedProfessors.RemoveAt(Professor.LoggedProfessors.Count - 1)
         Me.Close()

@@ -22,6 +22,7 @@ Partial Class Form_Role
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form_Role))
         Me.lblSelectRole = New System.Windows.Forms.Label()
         Me.btnContinue = New System.Windows.Forms.Button()
         Me.comboBoxRole = New System.Windows.Forms.ComboBox()
@@ -149,6 +150,7 @@ Partial Class Form_Role
         Me.Controls.Add(Me.btnContinue)
         Me.Controls.Add(Me.lblSelectRole)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Location = New System.Drawing.Point(276, 91)
         Me.Name = "Form_Role"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

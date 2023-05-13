@@ -77,7 +77,7 @@
         InitializeComponent()
     End Sub
 
-    Public Sub New(ByVal username As String, ByVal password As String)
+    Public Sub New(username As String, password As String)
         InitializeComponent()
         Dim student As Student = New Student(username, password)
         Me.Name = student.Name
@@ -90,7 +90,7 @@
         lblName.Text = "Welcome " & Name & " " + Surname
     End Sub
 
-    Public Sub New(ByVal studentID As Integer, ByVal name As String, ByVal surname As String, ByVal username As String, ByVal password As String, ByVal major As String, ByVal courses As List(Of String))
+    Public Sub New(studentID As Integer, name As String, surname As String, username As String, password As String, major As String, courses As List(Of String))
         InitializeComponent()
         Me.Name = name
         Me.Surname = surname
@@ -102,29 +102,29 @@
         lblName.Text = "Welcome " & name & " " + surname
     End Sub
 
-    Private Sub btnEnroll_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnEnroll.Click
+    Private Sub btnEnroll_Click(sender As Object, e As EventArgs) Handles btnEnroll.Click
         Dim form As Form_Student_Enroll = New Form_Student_Enroll(StudentID, Name, Surname, Username, Password, Major, Courses)
         Me.Hide()
         form.Show()
     End Sub
 
-    Private Sub btnDrop_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnDrop.Click
+    Private Sub btnDrop_Click(sender As Object, e As EventArgs) Handles btnDrop.Click
         Dim form As Form_Student_Drop = New Form_Student_Drop(StudentID, Name, Surname, Username, Password, Major, Courses)
         Me.Hide()
         form.Show()
     End Sub
 
-    Private Sub btnBack_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnBack.Click
+    Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
         Dim role As Form_Role = New Form_Role()
         Me.Hide()
         role.Show()
     End Sub
 
-    Private Sub btnExit_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnExit.Click
+    Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
         Me.Close()
     End Sub
 
-    Private Sub btnMyCourses_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnMyCourses.Click
+    Private Sub btnMyCourses_Click(sender As Object, e As EventArgs) Handles btnMyCourses.Click
         richTxtBoxResult.Clear()
         Dim myCourses As List(Of String) = New Student(StudentID, Name, Surname, Username, Password, Major, Courses).Courses
 
@@ -139,7 +139,7 @@
         End If
     End Sub
 
-    Private Sub btnMyGrades_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnMyGrades.Click
+    Private Sub btnMyGrades_Click(sender As Object, e As EventArgs) Handles btnMyGrades.Click
         richTxtBoxResult.Clear()
         Dim grades As List(Of String) = New Student(StudentID, Name, Surname, Username, Password, Major, Courses).showGrades()
 
@@ -154,7 +154,7 @@
         End If
     End Sub
 
-    Private Sub btnAllCourses_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnAllCourses.Click
+    Private Sub btnAllCourses_Click(sender As Object, e As EventArgs) Handles btnAllCourses.Click
         richTxtBoxResult.Clear()
         Dim allCourses As List(Of String) = New Student(StudentID, Name, Surname, Username, Password, Major, Courses).showAllCourses()
 
@@ -169,7 +169,7 @@
         End If
     End Sub
 
-    Private Sub btnAllCredits_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnAllCredits.Click
+    Private Sub btnAllCredits_Click(sender As Object, e As EventArgs) Handles btnAllCredits.Click
         richTxtBoxResult.Clear()
         Dim allCourses As List(Of String) = New Student(StudentID, Name, Surname, Username, Password, Major, Courses).showAllCredits()
 
@@ -184,7 +184,7 @@
         End If
     End Sub
 
-    Private Sub btnMyCredits_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnMyCredits.Click
+    Private Sub btnMyCredits_Click(sender As Object, e As EventArgs) Handles btnMyCredits.Click
         richTxtBoxResult.Clear()
         Dim myCoursesCredits As List(Of String) = New Student(StudentID, Name, Surname, Username, Password, Major, Courses).showStudentCredits()
 
@@ -199,7 +199,7 @@
         End If
     End Sub
 
-    Private Sub btnMyGPA_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnMyGPA.Click
+    Private Sub btnMyGPA_Click(sender As Object, e As EventArgs) Handles btnMyGPA.Click
         richTxtBoxResult.Clear()
 
         If New Student(StudentID, Name, Surname, Username, Password, Major, Courses).showGPA() = -1 Then

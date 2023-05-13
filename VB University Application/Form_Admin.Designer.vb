@@ -22,17 +22,18 @@ Partial Class Form_Admin
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form_Admin))
         Me.lblWelcome = New System.Windows.Forms.Label()
+        Me.btnBack = New System.Windows.Forms.Button()
+        Me.btnAddProfessor = New System.Windows.Forms.Button()
+        Me.btnAddStudent = New System.Windows.Forms.Button()
+        Me.btnAddCourse = New System.Windows.Forms.Button()
         Me.panel2 = New System.Windows.Forms.Panel()
         Me.lblAdmin = New System.Windows.Forms.Label()
         Me.btnRemoveCourse = New System.Windows.Forms.Button()
         Me.btnExit = New System.Windows.Forms.Button()
         Me.btnRemoveStudent = New System.Windows.Forms.Button()
         Me.btnRemoveProfessor = New System.Windows.Forms.Button()
-        Me.btnBack = New System.Windows.Forms.Button()
-        Me.btnAddProfessor = New System.Windows.Forms.Button()
-        Me.btnAddStudent = New System.Windows.Forms.Button()
-        Me.btnAddCourse = New System.Windows.Forms.Button()
         Me.pictureBox1 = New System.Windows.Forms.PictureBox()
         Me.panel2.SuspendLayout()
         CType(Me.pictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -43,11 +44,78 @@ Partial Class Form_Admin
         Me.lblWelcome.AutoSize = True
         Me.lblWelcome.Font = New System.Drawing.Font("Corbel", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblWelcome.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(87, Byte), Integer))
-        Me.lblWelcome.Location = New System.Drawing.Point(86, 9)
+        Me.lblWelcome.Location = New System.Drawing.Point(123, 9)
         Me.lblWelcome.Name = "lblWelcome"
-        Me.lblWelcome.Size = New System.Drawing.Size(168, 45)
+        Me.lblWelcome.Size = New System.Drawing.Size(131, 36)
         Me.lblWelcome.TabIndex = 22
         Me.lblWelcome.Text = "Welcome"
+        '
+        'btnBack
+        '
+        Me.btnBack.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(87, Byte), Integer))
+        Me.btnBack.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnBack.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke
+        Me.btnBack.FlatAppearance.BorderSize = 0
+        Me.btnBack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.WhiteSmoke
+        Me.btnBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
+        Me.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnBack.Font = New System.Drawing.Font("Corbel", 13.0!, System.Drawing.FontStyle.Bold)
+        Me.btnBack.ForeColor = System.Drawing.Color.Snow
+        Me.btnBack.Location = New System.Drawing.Point(0, 0)
+        Me.btnBack.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btnBack.Name = "btnBack"
+        Me.btnBack.Size = New System.Drawing.Size(40, 40)
+        Me.btnBack.TabIndex = 26
+        Me.btnBack.Text = "<"
+        Me.btnBack.UseVisualStyleBackColor = False
+        '
+        'btnAddProfessor
+        '
+        Me.btnAddProfessor.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(87, Byte), Integer))
+        Me.btnAddProfessor.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnAddProfessor.FlatAppearance.BorderColor = System.Drawing.Color.Orange
+        Me.btnAddProfessor.FlatAppearance.BorderSize = 0
+        Me.btnAddProfessor.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAddProfessor.Font = New System.Drawing.Font("Corbel", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.btnAddProfessor.ForeColor = System.Drawing.Color.Snow
+        Me.btnAddProfessor.Location = New System.Drawing.Point(34, 70)
+        Me.btnAddProfessor.Name = "btnAddProfessor"
+        Me.btnAddProfessor.Size = New System.Drawing.Size(182, 35)
+        Me.btnAddProfessor.TabIndex = 2
+        Me.btnAddProfessor.Text = "1. Add Professor"
+        Me.btnAddProfessor.UseVisualStyleBackColor = False
+        '
+        'btnAddStudent
+        '
+        Me.btnAddStudent.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(87, Byte), Integer))
+        Me.btnAddStudent.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnAddStudent.FlatAppearance.BorderColor = System.Drawing.Color.Orange
+        Me.btnAddStudent.FlatAppearance.BorderSize = 0
+        Me.btnAddStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAddStudent.Font = New System.Drawing.Font("Corbel", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.btnAddStudent.ForeColor = System.Drawing.Color.Snow
+        Me.btnAddStudent.Location = New System.Drawing.Point(34, 118)
+        Me.btnAddStudent.Name = "btnAddStudent"
+        Me.btnAddStudent.Size = New System.Drawing.Size(182, 35)
+        Me.btnAddStudent.TabIndex = 3
+        Me.btnAddStudent.Text = "2. Add Student"
+        Me.btnAddStudent.UseVisualStyleBackColor = False
+        '
+        'btnAddCourse
+        '
+        Me.btnAddCourse.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(87, Byte), Integer))
+        Me.btnAddCourse.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnAddCourse.FlatAppearance.BorderColor = System.Drawing.Color.Orange
+        Me.btnAddCourse.FlatAppearance.BorderSize = 0
+        Me.btnAddCourse.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAddCourse.Font = New System.Drawing.Font("Corbel", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.btnAddCourse.ForeColor = System.Drawing.Color.Snow
+        Me.btnAddCourse.Location = New System.Drawing.Point(34, 168)
+        Me.btnAddCourse.Name = "btnAddCourse"
+        Me.btnAddCourse.Size = New System.Drawing.Size(182, 35)
+        Me.btnAddCourse.TabIndex = 4
+        Me.btnAddCourse.Text = "3. Add Course"
+        Me.btnAddCourse.UseVisualStyleBackColor = False
         '
         'panel2
         '
@@ -69,9 +137,9 @@ Partial Class Form_Admin
         Me.lblAdmin.AutoSize = True
         Me.lblAdmin.Font = New System.Drawing.Font("Corbel", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblAdmin.ForeColor = System.Drawing.Color.Snow
-        Me.lblAdmin.Location = New System.Drawing.Point(9, 9)
+        Me.lblAdmin.Location = New System.Drawing.Point(3, 9)
         Me.lblAdmin.Name = "lblAdmin"
-        Me.lblAdmin.Size = New System.Drawing.Size(127, 45)
+        Me.lblAdmin.Size = New System.Drawing.Size(98, 36)
         Me.lblAdmin.TabIndex = 28
         Me.lblAdmin.Text = "Admin"
         '
@@ -141,76 +209,10 @@ Partial Class Form_Admin
         Me.btnRemoveProfessor.Text = "4. Remove Professor"
         Me.btnRemoveProfessor.UseVisualStyleBackColor = False
         '
-        'btnBack
-        '
-        Me.btnBack.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(87, Byte), Integer))
-        Me.btnBack.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnBack.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke
-        Me.btnBack.FlatAppearance.BorderSize = 0
-        Me.btnBack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.WhiteSmoke
-        Me.btnBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
-        Me.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnBack.Font = New System.Drawing.Font("Corbel", 13.0!, System.Drawing.FontStyle.Bold)
-        Me.btnBack.ForeColor = System.Drawing.Color.Snow
-        Me.btnBack.Location = New System.Drawing.Point(0, 0)
-        Me.btnBack.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.btnBack.Name = "btnBack"
-        Me.btnBack.Size = New System.Drawing.Size(40, 40)
-        Me.btnBack.TabIndex = 26
-        Me.btnBack.Text = "<"
-        Me.btnBack.UseVisualStyleBackColor = False
-        '
-        'btnAddProfessor
-        '
-        Me.btnAddProfessor.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(87, Byte), Integer))
-        Me.btnAddProfessor.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnAddProfessor.FlatAppearance.BorderColor = System.Drawing.Color.Orange
-        Me.btnAddProfessor.FlatAppearance.BorderSize = 0
-        Me.btnAddProfessor.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAddProfessor.Font = New System.Drawing.Font("Corbel", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.btnAddProfessor.ForeColor = System.Drawing.Color.Snow
-        Me.btnAddProfessor.Location = New System.Drawing.Point(34, 70)
-        Me.btnAddProfessor.Name = "btnAddProfessor"
-        Me.btnAddProfessor.Size = New System.Drawing.Size(182, 35)
-        Me.btnAddProfessor.TabIndex = 2
-        Me.btnAddProfessor.Text = "1. Add Professor"
-        Me.btnAddProfessor.UseVisualStyleBackColor = False
-        '
-        'btnAddStudent
-        '
-        Me.btnAddStudent.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(87, Byte), Integer))
-        Me.btnAddStudent.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnAddStudent.FlatAppearance.BorderColor = System.Drawing.Color.Orange
-        Me.btnAddStudent.FlatAppearance.BorderSize = 0
-        Me.btnAddStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAddStudent.Font = New System.Drawing.Font("Corbel", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.btnAddStudent.ForeColor = System.Drawing.Color.Snow
-        Me.btnAddStudent.Location = New System.Drawing.Point(34, 118)
-        Me.btnAddStudent.Name = "btnAddStudent"
-        Me.btnAddStudent.Size = New System.Drawing.Size(182, 35)
-        Me.btnAddStudent.TabIndex = 3
-        Me.btnAddStudent.Text = "2. Add Student"
-        Me.btnAddStudent.UseVisualStyleBackColor = False
-        '
-        'btnAddCourse
-        '
-        Me.btnAddCourse.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(87, Byte), Integer))
-        Me.btnAddCourse.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnAddCourse.FlatAppearance.BorderColor = System.Drawing.Color.Orange
-        Me.btnAddCourse.FlatAppearance.BorderSize = 0
-        Me.btnAddCourse.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAddCourse.Font = New System.Drawing.Font("Corbel", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.btnAddCourse.ForeColor = System.Drawing.Color.Snow
-        Me.btnAddCourse.Location = New System.Drawing.Point(34, 168)
-        Me.btnAddCourse.Name = "btnAddCourse"
-        Me.btnAddCourse.Size = New System.Drawing.Size(182, 35)
-        Me.btnAddCourse.TabIndex = 4
-        Me.btnAddCourse.Text = "3. Add Course"
-        Me.btnAddCourse.UseVisualStyleBackColor = False
-        '
         'pictureBox1
         '
         Me.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.pictureBox1.Image = Global.VB_University_Application.My.Resources.Resources.SUNY_Blue_Logo
         Me.pictureBox1.Location = New System.Drawing.Point(-2, 0)
         Me.pictureBox1.Name = "pictureBox1"
         Me.pictureBox1.Size = New System.Drawing.Size(256, 251)
@@ -220,7 +222,7 @@ Partial Class Form_Admin
         '
         'Form_Admin
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(13.0!, 31.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.WhiteSmoke
         Me.ClientSize = New System.Drawing.Size(500, 250)
@@ -234,6 +236,7 @@ Partial Class Form_Admin
         Me.Font = New System.Drawing.Font("Yu Gothic UI", 13.8!, System.Drawing.FontStyle.Bold)
         Me.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Form_Admin"
         Me.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

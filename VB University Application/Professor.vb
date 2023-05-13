@@ -1,192 +1,199 @@
 ﻿Imports System.Data.OleDb
 
-Namespace University_Application
-    Public Class Professor
-        Inherits Person
-        Implements Login
+Public Class Professor
+    Inherits Person
+    Implements Login
 
-        ' data fields
-        Private connection As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\Database_University.mdb"
-        Private coursesField As List(Of String) = New List(Of String)()
-        Private coursesIds As List(Of String) = New List(Of String)()
-        Private activeCourseField As String
-        Private activeCourseId As Integer
-        Private Shared loggedProfessorsField As List(Of Professor) = New List(Of Professor)()
+    Private ReadOnly connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\Database_University.mdb"
+    Private _courses As New List(Of String)()
+    Private ReadOnly coursesIds As New List(Of String)()
+    Private _activeCourse As String
+    Private _activeCourseId As Integer
+    Private Shared _loggedProfessors As New List(Of Professor)()
+
+    Public Property Courses As List(Of String)
+        Get
+            Return _courses
+        End Get
+        Set(value As List(Of String))
+            _courses = value
+        End Set
+    End Property
+
+    Public Property ActiveCourse As String
+        Get
+            Return _activeCourse
+        End Get
+        Set(value As String)
+            _activeCourse = value
+        End Set
+    End Property
+
+    Public Shared Property LoggedProfessors As List(Of Professor)
+        Get
+            Return _loggedProfessors
+        End Get
+        Set(value As List(Of Professor))
+            _loggedProfessors = value
+        End Set
+    End Property
+
+    Public Property ActiveCourseId As Integer
+        Get
+            Return _activeCourseId
+        End Get
+        Set(value As Integer)
+            _activeCourseId = value
+        End Set
+    End Property
+
+    Public Sub New()
+
+    End Sub
+
+    Public Sub New(name As String, surname As String, username As String, password As String)
+        Me.Username = username
+        Me.Password = password
+        Me.Name = name
+        Me.Surname = surname
+    End Sub
+
+    Public Sub New(id As Integer, name As String, surname As String, username As String, password As String)
+        MyBase.New(id, name, surname, username, password)
+    End Sub
+
+    Public Sub New(username As String, password As String)
+        Me.Username = username
+        Me.Password = password
+
+        Dim reader As OleDbDataReader = isUsernameAndPasswordValid(username, password)
+
+        reader.Read()
+
+        Me.Id = Convert.ToInt32(reader("Professor_ID").ToString())
+        Me.Name = reader("First_Name").ToString()
+        Me.Surname = reader("Last_Name").ToString()
+
+        Dim con As OleDbConnection = New OleDbConnection(connectionString)
+
+        If con.State <> Data.ConnectionState.Open Then
+            con.Open()
+        End If
+
+        Dim sql = "SELECT * FROM Courses WHERE Course_ID IN (SELECT Course_ID from Professors_Courses WHERE Professor_ID = ?)"
+
+        Dim cmd As OleDbCommand = New OleDbCommand(sql, con)
+        Dim paramCollection As OleDbParameterCollection = cmd.Parameters
+        paramCollection.Add(New OleDbParameter("Professor_ID", Me.Id))
+
+        Dim courseReader As OleDbDataReader = cmd.ExecuteReader()
 
 
-        ' attributes
-        Public Property Courses As List(Of String)
-            Get
-                Return coursesField
-            End Get
-            Set(ByVal value As List(Of String))
-                coursesField = value
-            End Set
-        End Property
-        Public Property ActiveCourse As String
-            Get
-                Return activeCourseField
-            End Get
-            Set(ByVal value As String)
-                activeCourseField = value
-            End Set
-        End Property
-        Public Shared Property LoggedProfessors As List(Of Professor)
-            Get
-                Return loggedProfessorsField
-            End Get
-            Set(ByVal value As List(Of Professor))
-                loggedProfessorsField = value
-            End Set
-        End Property
+        If courseReader.HasRows Then
+            While courseReader.Read()
+                coursesIds.Add(courseReader("Course_ID").ToString())
+                Courses.Add(courseReader("Course_Name").ToString())
+            End While
 
-        ' constructors
+        End If
+    End Sub
 
-        Public Sub New()
 
-        End Sub
+    ' Fuction to Verify if the Entered Credentials are Valid or Not
+    Public Function isUsernameAndPasswordValid(username As String, password As String) As OleDbDataReader Implements Login.isUsernameAndPasswordValid
+        Dim connection As New OleDbConnection(connectionString)
 
-        Public Sub New(ByVal name As String, ByVal surname As String, ByVal username As String, ByVal password As String)
-            Me.Username = username
-            Me.Password = password
-            Me.Name = name
-            Me.Surname = surname
-        End Sub
-        Public Sub New(ByVal id As Integer, ByVal name As String, ByVal surname As String, ByVal username As String, ByVal password As String)
-            MyBase.New(id, name, surname, username, password)
-        End Sub
+        connection.Open()
 
-        Public Sub New(ByVal username As String, ByVal password As String)
-            Me.Username = username
-            Me.Password = password
+        Dim command As New OleDbCommand("SELECT * FROM Professors WHERE Username = ? AND Password = ?", connection)
+        Dim paramCollection As OleDbParameterCollection = command.Parameters
+        paramCollection.Add(New OleDbParameter("Username", username))
+        paramCollection.Add(New OleDbParameter("Password", password))
 
-            Dim reader As OleDbDataReader = isUsernameAndPasswordValid(username, password)
+        Dim reader As OleDbDataReader = command.ExecuteReader()
 
-            reader.Read()
+        If reader.HasRows Then
+            Return reader
+        Else
+            Throw New InvalidLoginInfoException("Username and Password do not match!")
+        End If
+    End Function
 
-            Me.id = Convert.ToInt32(reader(CStr("Professor_ID")).ToString())
-            Me.Name = reader("First_Name").ToString()
-            Me.Surname = reader("Last_Name").ToString()
 
-            Dim con As OleDbConnection = New OleDbConnection(connection)
+    ' Fuction to Get the Most Recently Logged Professor
+    Public Shared Function getRecentProfessor() As Professor
+        Return LoggedProfessors.Last()
+    End Function
 
-            If con.State <> Data.ConnectionState.Open Then
-                con.Open()
+    ' Function to Display the Students of a Professor's Course
+    Public Function getStudents() As List(Of Student)
+        Dim students As New List(Of Student)()
+        Dim student As New Student()
+
+        For Each stud As Student In student.readStudents()
+            If stud.Courses.Contains(ActiveCourse) Then
+                students.Add(stud)
             End If
+        Next
 
-            Dim sql = "SELECT * FROM Courses WHERE Course_ID IN (SELECT Course_ID from Professors_Courses WHERE Professor_ID = ?)"
+        Return students
+    End Function
 
-            Dim cmd As OleDbCommand = New OleDbCommand(sql, con)
-            Dim paramCollection As OleDbParameterCollection = cmd.Parameters
-            paramCollection.Add(New OleDbParameter("Professor_ID", Me.Id))
-
-            Using courseReader As OleDbDataReader = cmd.ExecuteReader()
-
-
-                If courseReader.HasRows Then
-                    While courseReader.Read()
-                        coursesIds.Add(courseReader(CStr("Course_ID")).ToString())
-                        coursesField.Add(courseReader(CStr("Course_Name")).ToString())
-                    End While
-
-                End If
-            End Using
-
-        End Sub
-
-
-        ' method to determine if the login info is valid
-        Public Function isUsernameAndPasswordValid(ByVal username As String, ByVal password As String) As OleDbDataReader
-            Dim con As OleDbConnection = New OleDbConnection(connection)
-
-            If con.State <> Data.ConnectionState.Open Then
-                con.Open()
+    ' Function to Get the Students who is in the Course from the Given ID
+    Public Function getStudentFromID(studID As Integer) As Student
+        For Each student As Student In getStudents()
+            If student.Id.Equals(studID) Then
+                Return student
             End If
+        Next
+        Return Nothing
+    End Function
 
-            Dim sql = "SELECT * FROM Professors WHERE Username = ? AND Password = ?"
-            Dim cmd As OleDbCommand = New OleDbCommand(sql, con)
-            Dim paramCollection As OleDbParameterCollection = cmd.Parameters
-            paramCollection.Add(New OleDbParameter("Username", username))
-            paramCollection.Add(New OleDbParameter("Password", password))
+    ' Function to Get Grades for a Course
+    Public Function getGrades() As List(Of Grades)
+        Dim gradeList As New List(Of Grades)()
+        Dim grade As New Grades()
 
-            Dim reader As OleDbDataReader = cmd.ExecuteReader()
-
-            If reader.HasRows Then
-                Return reader
-            Else
-                Throw New InvalidLoginInfoException("Username and Password do not match!")
+        For Each grades As Grades In grade.readGrades()
+            If grades.CourseId.Equals(ActiveCourseId) Then
+                gradeList.Add(grades)
             End If
-        End Function
+        Next
 
-        ' method to get the most recently logged professor
-        Public Shared Function getRecentProfessor() As Professor
-            Return LoggedProfessors.Last()
-        End Function
-
-        ' method to show the students of a professor's course
-        Public Function getStudents() As List(Of Student)
-            Dim students As List(Of Student) = New List(Of Student)()
-            Dim student As Student = New Student()
-
-            For Each stud As Student In student.readStudents()
-                If stud.Courses.Contains(ActiveCourse) Then students.Add(stud)
-            Next
-
-            Return students
-        End Function
-
-        ' method to get student who is in the course from given ID
-        Public Function getStudentFromID(ByVal Id As Integer) As Student
-            For Each student As Student In getStudents()
-                If student.Id.Equals(Id) Then Return student
-            Next
-            Return Nothing
-        End Function
-
-        ' method to get grades of course
-        Public Function getGrades() As List(Of Grades)
-            Dim gradeList As List(Of Grades) = New List(Of Grades)()
-            Dim grade As Grades = New Grades()
-
-            For Each grades As Grades In grade.readGrades()
-                If grades.CourseId1.Equals(activeCourseId) Then gradeList.Add(grades)
-            Next
-
-            Return gradeList
-        End Function
+        Return gradeList
+    End Function
 
 
-        ' method to get all the scores of a professor's course
-        Public Function getScores() As List(Of Integer)
-            Dim gradeList As List(Of Integer) = New List(Of Integer)()
+    ' Function to Get All the Scores from a Specific Course that the Professor Offers
+    Public Function getScores() As List(Of Integer)
+        Dim gradeList As New List(Of Integer)()
 
-            For Each grades As Grades In getGrades()
-                gradeList.Add(grades.Score1)
-            Next
-            Return gradeList
-        End Function
+        For Each grades As Grades In getGrades()
+            gradeList.Add(grades.Score)
+        Next
 
-        ' method to add grades of a professor's course
-        Public Sub AddGrades(ByVal data As String())
-            If data.Length = 0 Then Throw New InvalidInputException("You did not enter any grades!" & vbLf & "The format is: STUDENTID,GRADE")
+        Return gradeList
+    End Function
 
-            For Each grade In data
-                Dim inputs = grade.Split(","c)
+    ' Sub Procedure to Add Grades of a Professor's Course
+    Public Sub AddGrades(data As String())
+        If data.Length = 0 Then Throw New InvalidInputException("You did not enter any grades!" & vbLf & "The format is: STUDENTID,GRADE")
 
-                If inputs.Length <> 2 Then Throw New InvalidInputException("The input given was not correctly written!" & vbLf & "The format is: STUDENTID,GRADE")
+        For Each grade In data
+            Dim inputs = grade.Split(","c)
 
-                If getStudentFromID(Convert.ToInt32(inputs(0))) Is Nothing Then Throw New InvalidInputException("The student whose ID you entered is not enrolled in the course!")
+            If inputs.Length <> 2 Then Throw New InvalidInputException("The input given was not correctly written!" & vbLf & "The format is: STUDENTID,GRADE")
 
-                Dim con As OleDbConnection = New OleDbConnection(connection)
+            If getStudentFromID(Convert.ToInt32(inputs(0))) Is Nothing Then Throw New InvalidInputException("The student whose ID you entered is not enrolled in the course!")
 
-                If con.State <> System.Data.ConnectionState.Open Then
-                    con.Open()
-                End If
-                Dim command As OleDbCommand = New OleDbCommand("select count(*) from Grades where Student_ID = ? AND Course_ID = ?", con)
+            Using connection As New OleDbConnection(connectionString)
+                connection.Open()
+
+                Dim command As New OleDbCommand("SELECT count(*) from Grades where Student_ID = ? AND Course_ID = ?", connection)
 
                 Dim paramCollection As OleDbParameterCollection = command.Parameters
                 paramCollection.Add(New OleDbParameter("Student_ID", inputs(0)))
-                paramCollection.Add(New OleDbParameter("Course_ID", activeCourseId))
+                paramCollection.Add(New OleDbParameter("Course_ID", ActiveCourseId))
                 Dim result As Integer = Convert.ToInt32(command.ExecuteScalar())
 
                 Dim sql As String
@@ -196,211 +203,200 @@ Namespace University_Application
                     sql = "UPDATE Grades SET Grade_Score = ? WHERE Student_ID = ? AND Course_ID = ?"
                 End If
 
-                Dim cmd As OleDbCommand = New OleDbCommand(sql, con)
-                cmd.Parameters.AddWithValue("@Grade_Score", inputs(1))
-                cmd.Parameters.AddWithValue("@Student_ID", inputs(0))
-                cmd.Parameters.AddWithValue("@Course_ID", activeCourseId)
-                cmd.ExecuteNonQuery()
-            Next
+                Dim command1 As New OleDbCommand(sql, connection)
+                command1.Parameters.AddWithValue("@Grade_Score", inputs(1))
+                command1.Parameters.AddWithValue("@Student_ID", inputs(0))
+                command1.Parameters.AddWithValue("@Course_ID", ActiveCourseId)
+                command1.ExecuteNonQuery()
+            End Using
+        Next
+    End Sub
 
-        End Sub
+    ' Function to Display Passing Students
+    Public Function showPassingStudents() As List(Of Student)
+        Dim studentList As New List(Of Student)()
+        Dim studentIds As New List(Of Integer)()
 
-        ' method to show passing students
-        Public Function showPassingStudents() As List(Of Student)
-            Dim studentList As List(Of Student) = New List(Of Student)()
-            Dim studentIds As List(Of Integer) = New List(Of Integer)()
+        For Each grade As Grades In getGrades()
+            If grade.Score > 59 Then
+                studentIds.Add(grade.Studentid)
+            End If
+        Next
 
-            For Each grade As Grades In getGrades()
-                If grade.Score1 > 59 Then studentIds.Add(grade.Studentid1)
-            Next
+        For Each sId In studentIds
+            studentList.Add(getStudentFromID(sId))
+        Next
 
-            For Each Id In studentIds
-                studentList.Add(getStudentFromID(Id))
-            Next
+        Return studentList
+    End Function
 
-            Return studentList
-        End Function
+    ' Function to Display Failing Students
+    Public Function showFailingStudents() As List(Of Student)
+        Dim studentList As New List(Of Student)()
+        Dim studentIds As New List(Of Integer)()
 
-        ' method to show failing students
-        Public Function showFailingStudents() As List(Of Student)
-            Dim studentList As List(Of Student) = New List(Of Student)()
-            Dim studentIds As List(Of Integer) = New List(Of Integer)()
+        For Each grade As Grades In getGrades()
+            If grade.Score <= 59 Then
+                studentIds.Add(grade.Studentid)
+            End If
+        Next
 
-            For Each grade As Grades In getGrades()
+        For Each sId In studentIds
+            studentList.Add(getStudentFromID(sId))
+        Next
 
-                If grade.Score1 <= 59 Then studentIds.Add(grade.Studentid1)
-            Next
+        Return studentList
+    End Function
 
-            For Each Id In studentIds
-                studentList.Add(getStudentFromID(Id))
-            Next
+    ' Function to Get the Name of the Lowest Scoring Student
+    Public Function showLowestScoringStudent() As String
+        Dim lowestScoring As New Student()
 
-            Return studentList
-        End Function
+        For Each grade As Grades In getGrades()
+            If grade.Score = showMinGrade() Then
+                lowestScoring = getStudentFromID(grade.Studentid)
+            End If
+        Next
 
-        ' method to get the name of the lowest scoring student
-        Public Function showLowestScoringStudent() As String
-            Dim lowestScoring As Student = New Student()
+        Return lowestScoring.Name.ToString() & " " + lowestScoring.Surname
+    End Function
 
-            For Each grade As Grades In getGrades()
-                If grade.Score1 = showMinGrade() Then
-                    lowestScoring = getStudentFromID(grade.Studentid1)
-                    Exit For
-                End If
-            Next
+    ' Function to Get the Name of the Highest Scoring Student
+    Public Function showHighestScoringStudent() As String
+        Dim highestScoring As New Student()
 
-            Return lowestScoring.Name.ToString() & " " + lowestScoring.Surname
-        End Function
+        For Each grade As Grades In getGrades()
+            If grade.Score = showMaxGrade() Then
+                highestScoring = getStudentFromID(grade.Studentid)
+            End If
+        Next
 
-        ' method to get the name of the highest scoring student
-        Public Function showHighestScoringStudent() As String
-            Dim highestScoring As Student = New Student()
-
-            For Each grade As Grades In getGrades()
-                If grade.Score1 = showMaxGrade() Then
-                    highestScoring = getStudentFromID(grade.Studentid1)
-                    Exit For
-                End If
-            Next
-
-            Return highestScoring.Name.ToString() & " " + highestScoring.Surname
-        End Function
-
-
-        ' method to get the minimum grade of a professor's course
-        Public Function showMinGrade() As Double
-            Dim gradeList As List(Of Integer) = getScores()
-
-            Dim min As Double = gradeList.ElementAt(0)
-
-            For i = 1 To gradeList.Count - 1
-                If gradeList.ElementAt(i) < min Then
-                    min = gradeList.ElementAt(i)
-                End If
-            Next
-
-            Return min
-        End Function
-
-        ' method to get the maximum grade of a professor's course
-
-        Public Function showMaxGrade() As Double
-            Dim gradeList As List(Of Integer) = getScores()
-
-            Dim max As Double = gradeList.ElementAt(0)
-            For i = 1 To gradeList.Count - 1
-                If gradeList.ElementAt(i) > max Then
-                    max = gradeList.ElementAt(i)
-                End If
-            Next
-            Return max
-        End Function
+        Return highestScoring.Name.ToString() & " " + highestScoring.Surname
+    End Function
 
 
-        ' method to get the average grade of a professor's course
+    ' Function to Get the Minimum Grade of a Professor's Course
+    Public Function showMinGrade() As Double
+        Dim gradeList As List(Of Integer) = getScores()
 
-        Public Function showAverage() As Double
-            Dim gradeList As List(Of Integer) = getScores()
+        Dim min As Double = gradeList.ElementAt(0)
 
-            Dim total = 0.0
-            If gradeList.Count = 0 Then Return total
+        For i = 1 To gradeList.Count - 1
+            If gradeList.ElementAt(i) < min Then
+                min = gradeList.ElementAt(i)
+            End If
+        Next
 
-            For Each grade In gradeList
-                total += grade
-            Next
+        Return min
+    End Function
 
-            Return total / gradeList.Count
-        End Function
+    ' Method to Get the Maximum Grade of a Professor's Course
+    Public Function showMaxGrade() As Double
+        Dim gradeList As List(Of Integer) = getScores()
 
-        'method to set the Id of the active course
-        Public Sub setActiveCourseId()
-            If Not Equals(ActiveCourse, Nothing) Then
-                Dim con As OleDbConnection = New OleDbConnection(connection)
-                If con.State <> Data.ConnectionState.Open Then
-                    con.Open()
-                End If
+        Dim max As Double = gradeList.ElementAt(0)
+        For i = 1 To gradeList.Count - 1
+            If gradeList.ElementAt(i) > max Then
+                max = gradeList.ElementAt(i)
+            End If
+        Next
 
-                Dim sql = "SELECT * FROM Courses WHERE Course_Name = ?"
+        Return max
+    End Function
 
 
-                Dim cmd As OleDbCommand = New OleDbCommand(sql, con)
-                Dim paramCollection As OleDbParameterCollection = cmd.Parameters
-                paramCollection.Add(New OleDbParameter("Course_Name", activeCourseField))
-                Dim reader As OleDbDataReader = cmd.ExecuteReader()
+    ' Function to Get the Average Grade of a Professor's Course
+    Public Function showAverage() As Double
+        Dim gradeList As List(Of Integer) = getScores()
 
+        Dim total = 0.0
+        If gradeList.Count = 0 Then Return total
+
+        For Each grade In gradeList
+            total += grade
+        Next
+
+        Return total / gradeList.Count
+    End Function
+
+    'Sub Procedure to Set the Id of the Active Course
+    Public Sub setActiveCourseId()
+        If Not Equals(ActiveCourse, Nothing) Then
+            Using connection As New OleDbConnection(connectionString)
+                connection.Open()
+
+                Dim command As New OleDbCommand("SELECT * FROM Courses WHERE Course_Name = ?", connection)
+                Dim paramCollection As OleDbParameterCollection = command.Parameters
+                paramCollection.Add(New OleDbParameter("Course_Name", ActiveCourse))
+
+                Using reader As OleDbDataReader = command.ExecuteReader()
+                    If reader.HasRows Then
+                        While reader.Read()
+                            ActiveCourseId = reader.GetInt32(0)
+                        End While
+                    End If
+                End Using
+            End Using
+        End If
+    End Sub
+
+    ' Function to Get All Professors from Database
+    Public Function readProfessors() As List(Of Professor)
+        Dim professors As New List(Of Professor)()
+        Using connection As New OleDbConnection(Me.connectionString)
+            connection.Open()
+
+            Dim command As New OleDbCommand("SELECT * FROM Professors", connection)
+
+            Using reader As OleDbDataReader = command.ExecuteReader()
 
                 If reader.HasRows Then
                     While reader.Read()
-                        activeCourseId = reader.GetInt32(0)
+                        Dim professorId = Convert.ToInt32(reader("Professor_ID"))
+                        Dim table_firstName As String = reader("First_Name").ToString()
+                        Dim table_lastName As String = reader("Last_Name").ToString()
+                        Dim table_username As String = reader("Username").ToString()
+                        Dim table_password As String = reader("Password").ToString()
+
+                        Dim prof As New Professor(professorId, table_firstName, table_lastName, table_username, table_password)
+
+                        Dim professorCoursesTable As New OleDbCommand("SELECT Course_ID FROM Professors_Courses WHERE Professor_ID = ?", connection)
+
+                        Dim paramCollection As OleDbParameterCollection = professorCoursesTable.Parameters
+                        paramCollection.Add(New OleDbParameter("Professor_ID", professorId))
+                        Using readerProfessorCoursesTable As OleDbDataReader = professorCoursesTable.ExecuteReader()
+
+                            While readerProfessorCoursesTable.Read()
+                                Dim table_courseID = Convert.ToInt32(readerProfessorCoursesTable("Course_ID"))
+
+                                Dim coursesTable As New OleDbCommand("SELECT Course_Name FROM Courses WHERE Course_ID = ?", connection)
+                                Dim coursesParamCollection As OleDbParameterCollection = coursesTable.Parameters
+                                coursesParamCollection.Add(New OleDbParameter("Course_ID", table_courseID))
+                                Dim readerCoursesTable As OleDbDataReader = coursesTable.ExecuteReader()
+                                readerCoursesTable.Read()
+                                prof.Courses.Add(readerCoursesTable("Course_Name").ToString())
+                                readerCoursesTable.Close()
+                            End While
+                            professors.Add(prof)
+                        End Using
                     End While
                 End If
-            End If
+            End Using
+        End Using
 
-        End Sub
+        Return professors
+    End Function
 
-        ' method to get all professor data from DB
-        Public Function readProfessors() As List(Of Professor)
-            Dim professors As List(Of Professor) = New List(Of Professor)()
-            Dim con As OleDbConnection = New OleDbConnection(connection)
-
-            If con.State <> Data.ConnectionState.Open Then
-                con.Open()
-            End If
-            Dim sql = "SELECT * FROM Professors"
-
-            Dim cmd As OleDbCommand = New OleDbCommand(sql, con)
-            Dim reader As OleDbDataReader = cmd.ExecuteReader()
-
-
-            If reader.HasRows Then
-
-                While reader.Read()
-                    Dim professorId = Convert.ToInt32(reader("Professor_ID"))
-                    Dim table_firstName As String = reader("First_Name").ToString()
-                    Dim table_lastName As String = reader("Last_Name").ToString()
-                    Dim table_username As String = reader("Username").ToString()
-                    Dim table_password As String = reader("Password").ToString()
-
-                    Dim prof As Professor = New Professor(professorId, table_firstName, table_lastName, table_username, table_password)
-
-                    Dim professorCoursesTable As OleDbCommand = New OleDbCommand("SELECT Course_ID FROM Professors_Courses WHERE Professor_ID = ?", con)
-
-                    Dim paramCollection As OleDbParameterCollection = professorCoursesTable.Parameters
-                    paramCollection.Add(New OleDbParameter("Professor_ID", professorId))
-                    Dim readerProfessorCoursesTable As OleDbDataReader = professorCoursesTable.ExecuteReader()
-
-                    While readerProfessorCoursesTable.Read()
-                        Dim table_courseID = Convert.ToInt32(readerProfessorCoursesTable("Course_ID"))
-
-                        Dim coursesTable As OleDbCommand = New OleDbCommand("SELECT Course_Name FROM Courses WHERE Course_ID = ?", con)
-                        Dim coursesParamCollection As OleDbParameterCollection = coursesTable.Parameters
-                        coursesParamCollection.Add(New OleDbParameter("Course_ID", table_courseID))
-                        Dim readerCoursesTable As OleDbDataReader = coursesTable.ExecuteReader()
-                        readerCoursesTable.Read()
-                        prof.Courses.Add(readerCoursesTable(CStr("Course_Name")).ToString())
-                        readerCoursesTable.Close()
-                    End While
-                    readerProfessorCoursesTable.Close()
-                    professors.Add(prof)
-                End While
-            End If
-
-            reader.Close()
-            con.Close()
-            Return professors
-        End Function
-
-        ' method to get a string representation of Professor
-        Public Overrides Function ToString() As String
-            If Courses Is Nothing Then
-                Return Me.Name.ToString() & "," + Me.Surname.ToString() & "," + Me.Username.ToString() & "," + Me.Password
-            Else
-                Dim result As String = Me.Name.ToString() & "," + Me.Surname.ToString() & "," + Me.Username.ToString() & "," + Me.Password
-                For i = 0 To Courses.Count - 1
-                    result += "," & Courses(i)
-                Next
-                Return result
-            End If
-        End Function
-    End Class
-End Namespace
+    ' Function to Get a String Tepresentation of Professor
+    Public Overrides Function ToString() As String
+        If Courses Is Nothing Then
+            Return Name.ToString() & ", " + Surname.ToString() & ", " + Username.ToString() & ", " + Password
+        Else
+            Dim result As String = Name.ToString() & ", " + Surname.ToString() & ", " + Username.ToString() & ", " + Password
+            For i = 0 To Courses.Count - 1
+                result += "," & Courses(i)
+            Next
+            Return result
+        End If
+    End Function
+End Class

@@ -7,7 +7,7 @@ Imports System.Threading.Tasks
 Public Class InvalidInputException
     Inherits Exception
 
-    Public Sub New(ByVal message As String)
+    Public Sub New(message As String)
         MyBase.New(message)
     End Sub
 End Class

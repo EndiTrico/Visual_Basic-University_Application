@@ -22,6 +22,7 @@ Partial Class Form_Professor
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form_Professor))
         Me.button_Average = New System.Windows.Forms.Button()
         Me.button_HighestScore = New System.Windows.Forms.Button()
         Me.button_Students = New System.Windows.Forms.Button()
@@ -267,8 +268,10 @@ Partial Class Form_Professor
         Me.ClientSize = New System.Drawing.Size(537, 366)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.Name = "Form_Professor"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Application"
         Me.Panel2.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)

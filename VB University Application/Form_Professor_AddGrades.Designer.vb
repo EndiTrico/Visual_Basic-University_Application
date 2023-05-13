@@ -23,6 +23,7 @@ Partial Class Form_Professor_AddGrades
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form_Professor_AddGrades))
         Me.button_Back = New System.Windows.Forms.Button()
         Me.button_Add = New System.Windows.Forms.Button()
         Me.buttonExit = New System.Windows.Forms.Button()
@@ -122,6 +123,7 @@ Partial Class Form_Professor_AddGrades
         Me.ClientSize = New System.Drawing.Size(464, 343)
         Me.Controls.Add(Me.panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Form_Professor_AddGrades"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form_Professor_AddGrades"

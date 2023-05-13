@@ -1,7 +1,7 @@
 ﻿Imports System.Data.OleDb
 
 Public Class Grades
-    Private connection As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\Database_University.mdb"
+    Private ReadOnly connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\Database_University.mdb"
     Private _gradeId As Integer
     Private _courseId As Integer
     Private _studentid As Integer
@@ -53,55 +53,54 @@ Public Class Grades
     Public Sub New()
     End Sub
 
+    ' Function to Get All Grades from the Database
     Public Function readGrades() As List(Of Grades)
-        Dim list As List(Of Grades) = New List(Of Grades)()
-        Dim con As OleDbConnection = New OleDbConnection(connection)
+        Dim allGrades As New List(Of Grades)()
 
-        If con.State <> System.Data.ConnectionState.Open Then
-            con.Open()
-        End If
+        Using connection As New OleDbConnection(connectionString)
+            connection.Open()
 
-        Dim sql As String = "SELECT * FROM Grades"
-        Dim cmd As OleDbCommand = New OleDbCommand(sql, con)
-        Dim reader As OleDbDataReader = cmd.ExecuteReader()
+            Dim command As New OleDbCommand("SELECT * FROM Grades", connection)
 
-        If reader.HasRows Then
+            Using reader As OleDbDataReader = command.ExecuteReader()
+                If reader.HasRows Then
+                    While reader.Read()
+                        Dim grade As New Grades(Convert.ToInt32(reader("Grade_ID")), Convert.ToInt32(reader("Course_ID")), Convert.ToInt32(reader("Student_ID")), Convert.ToInt32(reader("Grade_Score")))
+                        allGrades.Add(grade)
+                    End While
+                End If
+            End Using
+        End Using
 
-            While reader.Read()
-                Dim grade As Grades = New Grades(Convert.ToInt32(reader("Grade_ID")), Convert.ToInt32(reader("Course_ID")), Convert.ToInt32(reader("Student_ID")), Convert.ToInt32(reader("Grade_Score")))
-                list.Add(grade)
-            End While
-        End If
-
-        reader.Close()
-        Return list
+        Return allGrades
     End Function
 
-    Public Function readGradesForAStudent(ByVal studentID As Integer) As List(Of Grades)
-        Dim list As List(Of Grades) = New List(Of Grades)()
-        Dim con As OleDbConnection = New OleDbConnection(connection)
+    ' Function to Get the Grades for a Specific Student
+    Public Function readGradesForAStudent(studentID As Integer) As List(Of Grades)
+        Dim gradesListForAStudent As New List(Of Grades)()
 
-        If con.State <> System.Data.ConnectionState.Open Then
-            con.Open()
-        End If
+        Using connection As New OleDbConnection(connectionString)
+            connection.Open()
 
-        Dim cmd As OleDbCommand = New OleDbCommand("SELECT * FROM Grades WHERE Student_ID = @ID", con)
-        cmd.Parameters.AddWithValue("@ID", studentID)
-        Dim reader As OleDbDataReader = cmd.ExecuteReader()
+            Dim command As New OleDbCommand("SELECT * FROM Grades WHERE Student_ID = @ID", connection)
+            command.Parameters.AddWithValue("@ID", studentID)
 
-        If reader.HasRows Then
+            Using reader As OleDbDataReader = command.ExecuteReader()
 
-            While reader.Read()
-                Dim grade As Grades = New Grades(Convert.ToInt32(reader("Grade_ID")), Convert.ToInt32(reader("Course_ID")), Convert.ToInt32(reader("Student_ID")), Convert.ToInt32(reader("Grade_Score")))
-                list.Add(grade)
-            End While
-        End If
+                If reader.HasRows Then
+                    While reader.Read()
+                        Dim grade As New Grades(Convert.ToInt32(reader("Grade_ID")), Convert.ToInt32(reader("Course_ID")), Convert.ToInt32(reader("Student_ID")), Convert.ToInt32(reader("Grade_Score")))
+                        gradesListForAStudent.Add(grade)
+                    End While
+                End If
+            End Using
+        End Using
 
-        reader.Close()
-        Return list
+        Return gradesListForAStudent
     End Function
 
+    ' Function to Get String Representation of Grades
     Public Overrides Function ToString() As String
-        Return Me.GradeId & "," & Me.CourseId & ", " & Me.Studentid & ", " & Me.Score
+        Return GradeId & "," & CourseId & ", " & Studentid & ", " & Score
     End Function
 End Class

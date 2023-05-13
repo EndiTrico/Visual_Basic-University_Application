@@ -13,7 +13,7 @@
         Get
             Return _studentID
         End Get
-        Set(ByVal value As Integer)
+        Set(value As Integer)
             _studentID = value
         End Set
     End Property
@@ -22,7 +22,7 @@
         Get
             Return _name
         End Get
-        Set(ByVal value As String)
+        Set(value As String)
             _name = value
         End Set
     End Property
@@ -31,7 +31,7 @@
         Get
             Return _surname
         End Get
-        Set(ByVal value As String)
+        Set(value As String)
             _surname = value
         End Set
     End Property
@@ -40,7 +40,7 @@
         Get
             Return _username
         End Get
-        Set(ByVal value As String)
+        Set(value As String)
             _username = value
         End Set
     End Property
@@ -49,7 +49,7 @@
         Get
             Return _password
         End Get
-        Set(ByVal value As String)
+        Set(value As String)
             _password = value
         End Set
     End Property
@@ -58,7 +58,7 @@
         Get
             Return _major
         End Get
-        Set(ByVal value As String)
+        Set(value As String)
             _major = value
         End Set
     End Property
@@ -67,7 +67,7 @@
         Get
             Return _courses
         End Get
-        Set(ByVal value As List(Of String))
+        Set(value As List(Of String))
             _courses = value
         End Set
     End Property
@@ -80,7 +80,7 @@
         Next
     End Sub
 
-    Public Sub New(ByVal studentID As Integer, ByVal name As String, ByVal surname As String, ByVal username As String, ByVal password As String, ByVal major As String, ByVal courses As List(Of String))
+    Public Sub New(studentID As Integer, name As String, surname As String, username As String, password As String, major As String, courses As List(Of String))
         InitializeComponent()
         Me.StudentID = studentID
         Me.Name = name
@@ -95,25 +95,25 @@
         Next
     End Sub
 
-    Private Sub btnExit_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnExit.Click
+    Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
         Me.Close()
     End Sub
 
-    Private Sub btnBack_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnBack.Click
-        Dim student As Form_Student = New Form_Student(StudentID, Name, Surname, Username, Password, Major, Courses)
-        Me.Hide()
+    Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
+        Dim student As New Form_Student(StudentID, Name, Surname, Username, Password, Major, Courses)
+        Hide()
         student.Show()
     End Sub
 
-    Private Sub btnAdd_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnAdd.Click
+    Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
         If comboBoxEnroll.SelectedIndex = -1 Then
             MessageBox.Show("Select a Course!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.[Error])
         Else
             Dim student = New Student(StudentID, Name, Surname, Username, Password, Major)
             student.enroll(comboBoxEnroll.Text, StudentID)
             MessageBox.Show("The Course is Added Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
-            Dim form_Student As Form_Student = New Form_Student(Username, Password)
-            Me.Close()
+            Dim form_Student As New Form_Student(Username, Password)
+            Close()
             form_Student.Show()
         End If
     End Sub

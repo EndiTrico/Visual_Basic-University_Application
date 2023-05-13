@@ -1,86 +1,90 @@
 ﻿Imports System.Data.OleDb
 
-Namespace University_Application
-    Public Class Courses
-        Private connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\Database_University.mdb"
+Public Class Courses
+    Private ReadOnly connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\Database_University.mdb"
+    Private _id As Integer
+    Private _courseName As String
+    Private _credits As Integer
+    Private _hours As Integer
 
-        Private idField As Integer
-        Private courseNameField As String
-        Private creditsField As Integer
-        Private hoursField As Integer
+    Private ReadOnly coursesList As New List(Of Courses)()
 
-        Public Property Id As Integer
-            Get
-                Return idField
-            End Get
-            Set(ByVal value As Integer)
-                idField = value
-            End Set
-        End Property
-        Public Property CourseName As String
-            Get
-                Return courseNameField
-            End Get
-            Set(ByVal value As String)
-                courseNameField = value
-            End Set
-        End Property
-        Public Property Credits As Integer
-            Get
-                Return creditsField
-            End Get
-            Set(ByVal value As Integer)
-                creditsField = value
-            End Set
-        End Property
-        Public Property Hours As Integer
-            Get
-                Return hoursField
-            End Get
-            Set(ByVal value As Integer)
-                hoursField = value
-            End Set
-        End Property
+    Public Property Id As Integer
+        Get
+            Return _id
+        End Get
+        Set(value As Integer)
+            _id = value
+        End Set
+    End Property
 
-        Public Sub New()
+    Public Property CourseName As String
+        Get
+            Return _courseName
+        End Get
+        Set(value As String)
+            _courseName = value
+        End Set
+    End Property
 
-        End Sub
-        Public Sub New(ByVal id As Integer, ByVal courseName As String, ByVal credits As Integer, ByVal hours As Integer)
-            Me.Id = id
-            Me.CourseName = courseName
-            Me.Credits = credits
-            Me.Hours = hours
-        End Sub
+    Public Property Credits As Integer
+        Get
+            Return _credits
+        End Get
+        Set(value As Integer)
+            _credits = value
+        End Set
+    End Property
 
-        Public Sub New(ByVal courseName As String, ByVal credits As Integer, ByVal hours As Integer)
-            Me.CourseName = courseName
-            Me.Credits = credits
-            Me.Hours = hours
-        End Sub
+    Public Property Hours As Integer
+        Get
+            Return _hours
+        End Get
+        Set(value As Integer)
+            _hours = value
+        End Set
+    End Property
 
-        Public Function readCourses() As List(Of Courses)
-            Dim connection As OleDbConnection = New OleDbConnection(connectionString)
+    Public Sub New()
+
+    End Sub
+
+    Public Sub New(id As Integer, courseName As String, credits As Integer, hours As Integer)
+        Me.Id = id
+        Me.CourseName = courseName
+        Me.Credits = credits
+        Me.Hours = hours
+    End Sub
+
+    Public Sub New(courseName As String, credits As Integer, hours As Integer)
+        Me.CourseName = courseName
+        Me.Credits = credits
+        Me.Hours = hours
+    End Sub
+
+    ' Function to Read All Courses from the Database
+    Public Function readCourses() As List(Of Courses)
+
+        Using connection As New OleDbConnection(connectionString)
             connection.Open()
 
-            Dim coursesTable As OleDbCommand = New OleDbCommand("SELECT * FROM Courses", connection)
-            Dim readerCoursesTable As OleDbDataReader = coursesTable.ExecuteReader()
+            Dim coursesTable As New OleDbCommand("SELECT * FROM Courses", connection)
+            Using readerCoursesTable As OleDbDataReader = coursesTable.ExecuteReader()
 
-            Dim coursesList As List(Of Courses) = New List(Of Courses)()
+                While readerCoursesTable.Read()
+                    Dim course As New Courses(Convert.ToInt32(readerCoursesTable("Course_ID")), readerCoursesTable("Course_Name").ToString(), Convert.ToInt32(readerCoursesTable("Credits")), Convert.ToInt32(readerCoursesTable("Hours")))
 
-            While readerCoursesTable.Read()
-                Dim course As Courses = New Courses(Convert.ToInt32(readerCoursesTable("Course_ID")), readerCoursesTable("Course_Name").ToString(), Convert.ToInt32(readerCoursesTable("Credits")), Convert.ToInt32(readerCoursesTable("Hours")))
+                    coursesList.Add(course)
+                End While
 
-                coursesList.Add(course)
-            End While
+            End Using
+        End Using
 
-            readerCoursesTable.Close()
-            connection.Close()
+        Return coursesList
+    End Function
 
-            Return coursesList
-        End Function
-
-        Public Overrides Function ToString() As String
-            Return Id.ToString() & "," & CourseName & "," & Credits.ToString() & "," & Hours.ToString()
-        End Function
-    End Class
-End Namespace
+    ' Fuction to Get a String Representation of Courses
+    Public Overrides Function ToString() As String
+        Return Id.ToString() & "," & CourseName & "," & Credits.ToString() & "," & Hours.ToString()
+    End Function
+End Class

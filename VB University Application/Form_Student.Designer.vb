@@ -22,6 +22,7 @@ Partial Class Form_Student
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form_Student))
         Me.studentPanel = New System.Windows.Forms.Panel()
         Me.btnBack = New System.Windows.Forms.Button()
         Me.btnMyGPA = New System.Windows.Forms.Button()
@@ -256,6 +257,7 @@ Partial Class Form_Student
         Me.Controls.Add(Me.lblResult)
         Me.Controls.Add(Me.studentPanel)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Form_Student"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.studentPanel.ResumeLayout(False)
