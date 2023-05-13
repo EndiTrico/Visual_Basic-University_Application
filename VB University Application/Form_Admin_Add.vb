@@ -3,8 +3,8 @@
 Public Class Form_Admin_Add
     Inherits Form
 
-    Private admin As Admin
-    Private index As Integer
+    Private ReadOnly admin As Admin
+    Private ReadOnly index As Integer
 
     Public Sub New(index As Integer, ByRef admin As Admin)
         InitializeComponent()
@@ -49,17 +49,17 @@ Public Class Form_Admin_Add
     End Sub
 
     Public Sub addProfessor()
-        Dim professor As Professor = New Professor(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text)
+        Dim professor As New Professor(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text)
         admin.addProfessor(professor)
     End Sub
 
     Public Sub addStudent()
-        Dim student As Student = New Student(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, comboBox1.SelectedItem.ToString())
+        Dim student As New Student(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, comboBox1.SelectedItem.ToString())
         admin.addStudent(student)
     End Sub
 
     Public Sub addCourse()
-        Dim course As Courses = New Courses(textBox1.Text, Convert.ToInt32(textBox2.Text), Convert.ToInt32(textBox3.Text))
+        Dim course As New Courses(textBox1.Text, Convert.ToInt32(textBox2.Text), Convert.ToInt32(textBox3.Text))
         admin.addCourse(course, Convert.ToInt32(comboBox1.SelectedItem.ToString().Split(" "c)(0)))
     End Sub
 
@@ -71,7 +71,7 @@ Public Class Form_Admin_Add
             Else
                 addProfessor()
                 MessageBox.Show("Professor Added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
-                Dim admin As Form_Admin = New Form_Admin()
+                Dim admin As New Form_Admin()
                 Close()
                 admin.Show()
             End If
@@ -84,7 +84,7 @@ Public Class Form_Admin_Add
             Else
                 addStudent()
                 MessageBox.Show("Student Added Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
-                Dim admin As Form_Admin = New Form_Admin()
+                Dim admin As New Form_Admin()
                 Close()
                 admin.Show()
             End If
@@ -97,7 +97,7 @@ Public Class Form_Admin_Add
             Else
                 addCourse()
                 MessageBox.Show("Course Added Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
-                Dim admin As Form_Admin = New Form_Admin()
+                Dim admin As New Form_Admin()
                 Close()
                 admin.Show()
             End If
@@ -109,7 +109,7 @@ Public Class Form_Admin_Add
     End Sub
 
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
-        Dim admin As Form_Admin = New Form_Admin()
+        Dim admin As New Form_Admin()
         Hide()
         admin.Show()
     End Sub

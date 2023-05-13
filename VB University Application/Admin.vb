@@ -7,9 +7,9 @@ Public Class Admin
     Private _username As String = "admin"
     Private _password As String = "admin123"
 
-    Public professorList As List(Of Professor) = New List(Of Professor)()
-    Public studentList As List(Of Student) = New List(Of Student)()
-    Public coursesList As List(Of Courses) = New List(Of Courses)()
+    Public professorList As New List(Of Professor)()
+    Public studentList As New List(Of Student)()
+    Public coursesList As New List(Of Courses)()
 
     Public Property Password As String
         Get

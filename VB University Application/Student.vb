@@ -59,11 +59,11 @@ Public Class Student
         Me.Name = reader("First_Name").ToString()
         Me.Surname = reader("Last_Name").ToString()
 
-        Dim con As OleDbConnection = New OleDbConnection(connectionString)
+        Dim con As New OleDbConnection(connectionString)
         con.Open()
 
         Dim sql As String = "SELECT * FROM Courses WHERE Course_Id IN (SELECT Course_Id from Students_Courses WHERE Student_Id=" & Me.Id & ")"
-        Dim cmd As OleDbCommand = New OleDbCommand(sql, con)
+        Dim cmd As New OleDbCommand(sql, con)
         Dim courseReader As OleDbDataReader = cmd.ExecuteReader()
 
         If courseReader.HasRows Then

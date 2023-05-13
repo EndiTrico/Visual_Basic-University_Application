@@ -74,7 +74,7 @@ Public Class Professor
         Me.Name = reader("First_Name").ToString()
         Me.Surname = reader("Last_Name").ToString()
 
-        Dim con As OleDbConnection = New OleDbConnection(connectionString)
+        Dim con As New OleDbConnection(connectionString)
 
         If con.State <> ConnectionState.Open Then
             con.Open()
@@ -82,7 +82,7 @@ Public Class Professor
 
         Dim sql = "SELECT * FROM Courses WHERE Course_ID IN (SELECT Course_ID from Professors_Courses WHERE Professor_ID = ?)"
 
-        Dim cmd As OleDbCommand = New OleDbCommand(sql, con)
+        Dim cmd As New OleDbCommand(sql, con)
         Dim paramCollection As OleDbParameterCollection = cmd.Parameters
         paramCollection.Add(New OleDbParameter("Professor_ID", Me.Id))
 

@@ -7,7 +7,7 @@ Public Class Form_Professor_AddGrades
     End Sub
 
     Private Sub button_Back_Click(sender As Object, e As EventArgs) Handles button_Back.Click
-        Dim prof As Form_Professor = New Form_Professor()
+        Dim prof As New Form_Professor()
         Me.Hide()
         prof.Show()
     End Sub

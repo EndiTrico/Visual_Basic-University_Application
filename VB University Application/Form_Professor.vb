@@ -1,6 +1,4 @@
-﻿Imports VB_University_Application.University_Application
-
-Public Class Form_Professor
+﻿Public Class Form_Professor
     Private Sub Form_Professor_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Label1.Text = $"{Professor.getRecentProfessor().Name}!"
 
@@ -153,7 +151,7 @@ Public Class Form_Professor
     End Sub
 
     Private Sub button_Back_Click(sender As Object, e As EventArgs) Handles button_Back.Click
-        Dim role As Form_Role = New Form_Role()
+        Dim role As New Form_Role()
         Hide()
         role.Show()
     End Sub

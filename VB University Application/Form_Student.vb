@@ -79,7 +79,7 @@
 
     Public Sub New(username As String, password As String)
         InitializeComponent()
-        Dim student As Student = New Student(username, password)
+        Dim student As New Student(username, password)
         Me.Name = student.Name
         Me.Surname = student.Surname
         Me.Username = student.Username
@@ -103,20 +103,20 @@
     End Sub
 
     Private Sub btnEnroll_Click(sender As Object, e As EventArgs) Handles btnEnroll.Click
-        Dim form As Form_Student_Enroll = New Form_Student_Enroll(StudentID, Name, Surname, Username, Password, Major, Courses)
-        Me.Hide()
+        Dim form As New Form_Student_Enroll(StudentID, Name, Surname, Username, Password, Major, Courses)
+        Hide()
         form.Show()
     End Sub
 
     Private Sub btnDrop_Click(sender As Object, e As EventArgs) Handles btnDrop.Click
-        Dim form As Form_Student_Drop = New Form_Student_Drop(StudentID, Name, Surname, Username, Password, Major, Courses)
-        Me.Hide()
+        Dim form As New Form_Student_Drop(StudentID, Name, Surname, Username, Password, Major, Courses)
+        Hide()
         form.Show()
     End Sub
 
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
-        Dim role As Form_Role = New Form_Role()
-        Me.Hide()
+        Dim role As New Form_Role()
+        Hide()
         role.Show()
     End Sub
 

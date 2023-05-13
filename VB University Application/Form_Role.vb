@@ -9,7 +9,7 @@
         If comboBoxRole.SelectedIndex = -1 Then
             MessageBox.Show("Select a Role!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.[Error])
         Else
-            Dim formLog As Form_Login = New Form_Login(comboBoxRole.SelectedIndex)
+            Dim formLog As New Form_Login(comboBoxRole.SelectedIndex)
             Hide()
             formLog.Show()
         End If

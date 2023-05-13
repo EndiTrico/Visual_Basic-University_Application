@@ -3,7 +3,7 @@
 Public Class Form_Login
     Inherits Form
 
-    Private number As Integer
+    Private ReadOnly number As Integer
 
     Public Sub New(number As Integer)
         Me.number = number
@@ -23,11 +23,11 @@ Public Class Form_Login
             If number = 0 Then
 
                 Try
-                    Dim admin As Admin = New Admin()
+                    Dim admin As New Admin()
 
                     If admin.isUsernameAndPasswordValid(txtBoxUsername.Text, txtBoxPassword.Text) Then
-                        Dim formAdmin As Form_Admin = New Form_Admin()
-                        Me.Hide()
+                        Dim formAdmin As New Form_Admin()
+                        Hide()
                         formAdmin.Show()
                     End If
 
@@ -37,9 +37,9 @@ Public Class Form_Login
             ElseIf number = 1 Then
 
                 Try
-                    Dim prof As Professor = New Professor(txtBoxUsername.Text, txtBoxPassword.Text)
+                    Dim prof As New Professor(txtBoxUsername.Text, txtBoxPassword.Text)
                     Professor.LoggedProfessors.Add(prof)
-                    Dim formProf As Form_Professor = New Form_Professor()
+                    Dim formProf As New Form_Professor()
                     Me.Hide()
                     formProf.Show()
                 Catch ex As InvalidLoginInfoException
@@ -48,8 +48,8 @@ Public Class Form_Login
             ElseIf number = 2 Then
 
                 Try
-                    Dim student As Student = New Student(txtBoxUsername.Text, txtBoxPassword.Text)
-                    Dim formStud As Form_Student = New Form_Student(txtBoxUsername.Text, txtBoxPassword.Text)
+                    Dim student As New Student(txtBoxUsername.Text, txtBoxPassword.Text)
+                    Dim formStud As New Form_Student(txtBoxUsername.Text, txtBoxPassword.Text)
                     Me.Hide()
                     formStud.Show()
                 Catch ex As InvalidLoginInfoException
@@ -70,7 +70,7 @@ Public Class Form_Login
     End Sub
 
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
-        Dim role As Form_Role = New Form_Role()
+        Dim role As New Form_Role()
         Hide()
         role.Show()
     End Sub
