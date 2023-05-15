@@ -16,43 +16,43 @@
     End Sub
 
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
-        Dim role As Form_Role = New Form_Role()
+        Dim role As New Form_Role()
         Hide()
         role.Show()
     End Sub
 
     Private Sub btnAddProfessor_Click(sender As Object, e As EventArgs) Handles btnAddProfessor.Click
-        Dim child1 As Form_Admin_Add = New Form_Admin_Add(1, admin)
+        Dim child1 As New Form_Admin_Add(1, admin)
         Hide()
         child1.Show()
     End Sub
 
     Private Sub btnAddStudent_Click(sender As Object, e As EventArgs) Handles btnAddStudent.Click
-        Dim child1 As Form_Admin_Add = New Form_Admin_Add(2, admin)
+        Dim child1 As New Form_Admin_Add(2, admin)
         Hide()
         child1.Show()
     End Sub
 
     Private Sub btnAddCourse_Click(sender As Object, e As EventArgs) Handles btnAddCourse.Click
-        Dim child1 As Form_Admin_Add = New Form_Admin_Add(3, admin)
+        Dim child1 As New Form_Admin_Add(3, admin)
         Hide()
         child1.Show()
     End Sub
 
     Private Sub btnRemoveProfessor_Click(sender As Object, e As EventArgs) Handles btnRemoveProfessor.Click
-        Dim child1 As Form_Admin_Remove = New Form_Admin_Remove(4, admin)
+        Dim child1 As New Form_Admin_Remove(4, admin)
         Hide()
         child1.Show()
     End Sub
 
     Private Sub btnRemoveStudent_Click(sender As Object, e As EventArgs) Handles btnRemoveStudent.Click
-        Dim child1 As Form_Admin_Remove = New Form_Admin_Remove(5, admin)
+        Dim child1 As New Form_Admin_Remove(5, admin)
         Hide()
         child1.Show()
     End Sub
 
     Private Sub btnRemoveCourse_Click(sender As Object, e As EventArgs) Handles btnRemoveCourse.Click
-        Dim child1 As Form_Admin_Remove = New Form_Admin_Remove(6, admin)
+        Dim child1 As New Form_Admin_Remove(6, admin)
         Hide()
         child1.Show()
     End Sub

@@ -49,7 +49,13 @@ Public Class Admin
                 professorTable.Parameters.AddWithValue("@b", professor.Surname)
                 professorTable.Parameters.AddWithValue("@c", professor.Username)
                 professorTable.Parameters.AddWithValue("@d", professor.Password)
-                Dim rowsAffected As Integer = professorTable.ExecuteNonQuery()
+
+                Try
+                    Dim rowsAffected As Integer = professorTable.ExecuteNonQuery()
+                Catch ex As OleDbException
+                    MessageBox.Show("This Username is Used by Another Professor!", "Error", MessageBoxButtons.OK, MessageBoxIcon.[Error])
+                End Try
+
             End Using
         End Using
 
@@ -80,7 +86,13 @@ Public Class Admin
                 studentsTable.Parameters.AddWithValue("@Username", student.Username)
                 studentsTable.Parameters.AddWithValue("@Password", student.Password)
                 studentsTable.Parameters.AddWithValue("@Major", student.Major)
-                Dim rowsAffected As Integer = studentsTable.ExecuteNonQuery()
+
+                Try
+                    Dim rowsAffected As Integer = studentsTable.ExecuteNonQuery()
+                Catch ex As OleDbException
+                    MessageBox.Show("This Username is Used by Another Student!", "Error", MessageBoxButtons.OK, MessageBoxIcon.[Error])
+                End Try
+
             End Using
         End Using
 
@@ -112,7 +124,14 @@ Public Class Admin
                 coursesTable.Parameters.AddWithValue("@a", course.CourseName)
                 coursesTable.Parameters.AddWithValue("@b", course.Credits)
                 coursesTable.Parameters.AddWithValue("@c", course.Hours)
-                Dim row As Integer = coursesTable.ExecuteNonQuery()
+
+                Try
+                    Dim rowsAffected As Integer = coursesTable.ExecuteNonQuery()
+                Catch ex As OleDbException
+                    MessageBox.Show("This Course Name is Used by Another Course!", "Error", MessageBoxButtons.OK, MessageBoxIcon.[Error])
+                    Return
+                End Try
+
             End Using
 
             Using coursesTable1 As New OleDbCommand("SELECT Course_ID from Courses WHERE Course_Name = ?", connection)

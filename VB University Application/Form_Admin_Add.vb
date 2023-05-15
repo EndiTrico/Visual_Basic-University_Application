@@ -65,41 +65,48 @@ Public Class Form_Admin_Add
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
         If index = 1 Then
-
+            Dim indexProfessor = admin.professorList.Count
             If textBox1.Text = "" OrElse textBox2.Text = "" OrElse textBox3.Text = "" OrElse textBox4.Text = "" Then
                 MessageBox.Show("Enter All Data!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.[Error])
             Else
                 addProfessor()
-                MessageBox.Show("Professor Added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
-                Dim admin As New Form_Admin()
-                Close()
-                admin.Show()
+                If admin.professorList.Count = indexProfessor + 1 Then
+                    MessageBox.Show("Professor Added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
+                    Dim admin_Form As New Form_Admin()
+                    Close()
+                    admin_Form.Show()
+                End If
             End If
         End If
 
-        If index = 2 Then
 
+        If index = 2 Then
+            Dim indexStudent = admin.studentList.Count
             If textBox1.Text = "" OrElse textBox2.Text = "" OrElse textBox3.Text = "" OrElse textBox4.Text = "" OrElse comboBox1.SelectedItem Is Nothing Then
                 MessageBox.Show("Enter All Data!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.[Error])
             Else
                 addStudent()
-                MessageBox.Show("Student Added Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
-                Dim admin As New Form_Admin()
-                Close()
-                admin.Show()
+                If admin.studentList.Count = indexStudent + 1 Then
+                    MessageBox.Show("Student Added Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
+                    Dim admin_form As New Form_Admin()
+                    Close()
+                    admin_form.Show()
+                End If
             End If
         End If
 
         If index = 3 Then
-
+            Dim indexNumber = admin.coursesList.Count
             If textBox1.Text = "" OrElse textBox2.Text = "" OrElse textBox3.Text = "" OrElse comboBox1.SelectedItem Is Nothing Then
                 MessageBox.Show("Enter All Data!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.[Error])
             Else
                 addCourse()
-                MessageBox.Show("Course Added Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
-                Dim admin As New Form_Admin()
-                Close()
-                admin.Show()
+                If admin.coursesList.Count = indexNumber + 1 Then
+                    MessageBox.Show("Course Added Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
+                    Dim admin_form As New Form_Admin()
+                    Close()
+                    admin_form.Show()
+                End If
             End If
         End If
     End Sub
