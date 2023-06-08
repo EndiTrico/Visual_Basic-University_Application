@@ -1,1 +1,2 @@
-# VB University Application
+# SUNY University Application 
+## Visual Basic Programming Language
