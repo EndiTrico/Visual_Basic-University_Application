@@ -12,11 +12,11 @@
     End Sub
 
     Private Sub button_Add_Click(sender As Object, e As EventArgs) Handles button_Add.Click
-        If txtBoxStudentID.TextLength = 0 Or txtBoxGrade.TextLength = 0 Then
+        If comboBoxID.SelectedIndex = -1 Or txtBoxGrade.TextLength = 0 Then
             MessageBox.Show("Missing Input!", "Error", MessageBoxButtons.OK, MessageBoxIcon.[Error])
         Else
             Dim data(1) As String
-            data(0) = CInt(txtBoxStudentID.Text)
+            data(0) = CInt(comboBoxID.Text)
             data(1) = CDec(txtBoxGrade.Text)
 
             If data(1) >= 0 And data(1) <= 100 Then
@@ -45,6 +45,7 @@
 
         For Each student As Student In students
             listBoxStudentNames.Items.Add(CStr(student.Id) + " " + student.Name & " " + student.Surname & vbLf)
+            comboBoxID.Items.Add(student.Id)
         Next
     End Sub
 End Class

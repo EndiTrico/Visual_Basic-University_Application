@@ -31,9 +31,9 @@ Partial Class Form_Professor_AddGrades
         Me.txtBoxGrade = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.txtBoxStudentID = New System.Windows.Forms.TextBox()
         Me.listBoxStudentNames = New System.Windows.Forms.ListBox()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.comboBoxID = New System.Windows.Forms.ComboBox()
         Me.panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -79,7 +79,7 @@ Partial Class Form_Professor_AddGrades
         Me.buttonExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.buttonExit.Font = New System.Drawing.Font("Lucida Console", 12.75!, System.Drawing.FontStyle.Bold)
         Me.buttonExit.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.buttonExit.Location = New System.Drawing.Point(469, 0)
+        Me.buttonExit.Location = New System.Drawing.Point(472, 0)
         Me.buttonExit.Name = "buttonExit"
         Me.buttonExit.Size = New System.Drawing.Size(40, 40)
         Me.buttonExit.TabIndex = 14
@@ -89,10 +89,10 @@ Partial Class Form_Professor_AddGrades
         'panel1
         '
         Me.panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(87, Byte), Integer))
+        Me.panel1.Controls.Add(Me.comboBoxID)
         Me.panel1.Controls.Add(Me.txtBoxGrade)
         Me.panel1.Controls.Add(Me.Label7)
         Me.panel1.Controls.Add(Me.Label2)
-        Me.panel1.Controls.Add(Me.txtBoxStudentID)
         Me.panel1.Controls.Add(Me.listBoxStudentNames)
         Me.panel1.Controls.Add(Me.Label1)
         Me.panel1.Controls.Add(Me.button_Add)
@@ -133,14 +133,6 @@ Partial Class Form_Professor_AddGrades
         Me.Label2.TabIndex = 25
         Me.Label2.Text = "Student ID:"
         '
-        'txtBoxStudentID
-        '
-        Me.txtBoxStudentID.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtBoxStudentID.Location = New System.Drawing.Point(330, 89)
-        Me.txtBoxStudentID.Name = "txtBoxStudentID"
-        Me.txtBoxStudentID.Size = New System.Drawing.Size(142, 21)
-        Me.txtBoxStudentID.TabIndex = 22
-        '
         'listBoxStudentNames
         '
         Me.listBoxStudentNames.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -161,6 +153,14 @@ Partial Class Form_Professor_AddGrades
         Me.Label1.Size = New System.Drawing.Size(112, 27)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Add Grades"
+        '
+        'comboBoxID
+        '
+        Me.comboBoxID.FormattingEnabled = True
+        Me.comboBoxID.Location = New System.Drawing.Point(331, 88)
+        Me.comboBoxID.Name = "comboBoxID"
+        Me.comboBoxID.Size = New System.Drawing.Size(141, 21)
+        Me.comboBoxID.TabIndex = 34
         '
         'Form_Professor_AddGrades
         '
@@ -188,6 +188,6 @@ Partial Class Form_Professor_AddGrades
     Friend WithEvents txtBoxGrade As TextBox
     Friend WithEvents Label7 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents txtBoxStudentID As TextBox
     Friend WithEvents listBoxStudentNames As ListBox
+    Friend WithEvents comboBoxID As ComboBox
 End Class
