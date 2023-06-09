@@ -28,8 +28,12 @@ Partial Class Form_Professor_AddGrades
         Me.button_Add = New System.Windows.Forms.Button()
         Me.buttonExit = New System.Windows.Forms.Button()
         Me.panel1 = New System.Windows.Forms.Panel()
+        Me.txtBoxGrade = New System.Windows.Forms.TextBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.txtBoxStudentID = New System.Windows.Forms.TextBox()
+        Me.listBoxStudentNames = New System.Windows.Forms.ListBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.textBox_Input = New System.Windows.Forms.TextBox()
         Me.panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -43,26 +47,27 @@ Partial Class Form_Professor_AddGrades
         Me.button_Back.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.button_Back.Font = New System.Drawing.Font("Lucida Console", 13.0!, System.Drawing.FontStyle.Bold)
         Me.button_Back.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.button_Back.Location = New System.Drawing.Point(3, 0)
+        Me.button_Back.Location = New System.Drawing.Point(0, 0)
         Me.button_Back.Name = "button_Back"
-        Me.button_Back.Size = New System.Drawing.Size(39, 42)
+        Me.button_Back.Size = New System.Drawing.Size(40, 40)
         Me.button_Back.TabIndex = 20
         Me.button_Back.Text = "<"
         Me.button_Back.UseVisualStyleBackColor = False
         '
         'button_Add
         '
+        Me.button_Add.BackColor = System.Drawing.Color.WhiteSmoke
         Me.button_Add.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke
         Me.button_Add.FlatAppearance.BorderSize = 2
         Me.button_Add.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.button_Add.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.button_Add.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.button_Add.Location = New System.Drawing.Point(315, 159)
+        Me.button_Add.Font = New System.Drawing.Font("Impact", 13.0!)
+        Me.button_Add.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(87, Byte), Integer))
+        Me.button_Add.Location = New System.Drawing.Point(385, 248)
         Me.button_Add.Name = "button_Add"
         Me.button_Add.Size = New System.Drawing.Size(87, 43)
         Me.button_Add.TabIndex = 4
         Me.button_Add.Text = "ADD"
-        Me.button_Add.UseVisualStyleBackColor = True
+        Me.button_Add.UseVisualStyleBackColor = False
         '
         'buttonExit
         '
@@ -74,9 +79,9 @@ Partial Class Form_Professor_AddGrades
         Me.buttonExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.buttonExit.Font = New System.Drawing.Font("Lucida Console", 12.75!, System.Drawing.FontStyle.Bold)
         Me.buttonExit.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.buttonExit.Location = New System.Drawing.Point(417, 0)
+        Me.buttonExit.Location = New System.Drawing.Point(469, 0)
         Me.buttonExit.Name = "buttonExit"
-        Me.buttonExit.Size = New System.Drawing.Size(48, 35)
+        Me.buttonExit.Size = New System.Drawing.Size(40, 40)
         Me.buttonExit.TabIndex = 14
         Me.buttonExit.Text = "X"
         Me.buttonExit.UseVisualStyleBackColor = True
@@ -84,43 +89,85 @@ Partial Class Form_Professor_AddGrades
         'panel1
         '
         Me.panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(87, Byte), Integer))
+        Me.panel1.Controls.Add(Me.txtBoxGrade)
+        Me.panel1.Controls.Add(Me.Label7)
+        Me.panel1.Controls.Add(Me.Label2)
+        Me.panel1.Controls.Add(Me.txtBoxStudentID)
+        Me.panel1.Controls.Add(Me.listBoxStudentNames)
         Me.panel1.Controls.Add(Me.Label1)
         Me.panel1.Controls.Add(Me.button_Add)
         Me.panel1.Controls.Add(Me.buttonExit)
         Me.panel1.Controls.Add(Me.button_Back)
-        Me.panel1.Controls.Add(Me.textBox_Input)
         Me.panel1.Location = New System.Drawing.Point(0, 0)
         Me.panel1.Name = "panel1"
-        Me.panel1.Size = New System.Drawing.Size(465, 343)
+        Me.panel1.Size = New System.Drawing.Size(512, 331)
         Me.panel1.TabIndex = 3
+        '
+        'txtBoxGrade
+        '
+        Me.txtBoxGrade.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtBoxGrade.Location = New System.Drawing.Point(330, 146)
+        Me.txtBoxGrade.Name = "txtBoxGrade"
+        Me.txtBoxGrade.Size = New System.Drawing.Size(142, 21)
+        Me.txtBoxGrade.TabIndex = 33
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Impact", 12.0!)
+        Me.Label7.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.Label7.Location = New System.Drawing.Point(273, 146)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(51, 20)
+        Me.Label7.TabIndex = 32
+        Me.Label7.Text = "Grade:"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Impact", 12.0!)
+        Me.Label2.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.Label2.Location = New System.Drawing.Point(245, 90)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(79, 20)
+        Me.Label2.TabIndex = 25
+        Me.Label2.Text = "Student ID:"
+        '
+        'txtBoxStudentID
+        '
+        Me.txtBoxStudentID.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtBoxStudentID.Location = New System.Drawing.Point(330, 89)
+        Me.txtBoxStudentID.Name = "txtBoxStudentID"
+        Me.txtBoxStudentID.Size = New System.Drawing.Size(142, 21)
+        Me.txtBoxStudentID.TabIndex = 22
+        '
+        'listBoxStudentNames
+        '
+        Me.listBoxStudentNames.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.listBoxStudentNames.FormattingEnabled = True
+        Me.listBoxStudentNames.ItemHeight = 16
+        Me.listBoxStudentNames.Location = New System.Drawing.Point(12, 59)
+        Me.listBoxStudentNames.Name = "listBoxStudentNames"
+        Me.listBoxStudentNames.Size = New System.Drawing.Size(207, 244)
+        Me.listBoxStudentNames.TabIndex = 21
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Impact", 16.0!)
         Me.Label1.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.Label1.Location = New System.Drawing.Point(195, 19)
+        Me.Label1.Location = New System.Drawing.Point(197, 8)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(112, 27)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Add Grades"
-        '
-        'textBox_Input
-        '
-        Me.textBox_Input.Font = New System.Drawing.Font("Yu Gothic UI", 9.0!)
-        Me.textBox_Input.ForeColor = System.Drawing.Color.Black
-        Me.textBox_Input.Location = New System.Drawing.Point(22, 57)
-        Me.textBox_Input.Multiline = True
-        Me.textBox_Input.Name = "textBox_Input"
-        Me.textBox_Input.Size = New System.Drawing.Size(221, 261)
-        Me.textBox_Input.TabIndex = 2
         '
         'Form_Professor_AddGrades
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.buttonExit
-        Me.ClientSize = New System.Drawing.Size(464, 343)
+        Me.ClientSize = New System.Drawing.Size(512, 330)
         Me.Controls.Add(Me.panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -137,6 +184,10 @@ Partial Class Form_Professor_AddGrades
     Friend WithEvents button_Add As Button
     Friend WithEvents buttonExit As Button
     Friend WithEvents panel1 As Panel
-    Friend WithEvents textBox_Input As TextBox
     Friend WithEvents Label1 As Label
+    Friend WithEvents txtBoxGrade As TextBox
+    Friend WithEvents Label7 As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents txtBoxStudentID As TextBox
+    Friend WithEvents listBoxStudentNames As ListBox
 End Class
