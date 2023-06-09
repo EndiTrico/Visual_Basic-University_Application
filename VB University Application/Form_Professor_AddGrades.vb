@@ -22,7 +22,8 @@
             If data(1) >= 0 And data(1) <= 100 Then
                 Try
                     Professor.getRecentProfessor().AddGrades(data)
-                    MessageBox.Show("Grades entered successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
+                    MessageBox.Show("Grade entered successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
+                    Form_Welcome.CopyDatabaseToMainFolder()
                 Catch ex As InvalidInputException
                     MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.[Error])
                 End Try

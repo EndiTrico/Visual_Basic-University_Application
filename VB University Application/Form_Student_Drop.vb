@@ -111,6 +111,7 @@
         If comboBoxDrop.SelectedIndex = -1 Then
             MessageBox.Show("You Need to Select a Course!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.[Error])
         Else
+            Form_Welcome.CopyDatabaseToMainFolder()
             MessageBox.Show("The Course is Dropped Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
             Dim student = New Student(StudentID, Name, Surname, Username, Password, Major)
             student.drop(comboBoxDrop.Text, StudentID)

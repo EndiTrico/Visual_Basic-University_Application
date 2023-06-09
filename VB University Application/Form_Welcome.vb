@@ -26,17 +26,15 @@ Public Class Form_Welcome
         Application.[Exit]()
     End Sub
 
-    Private Sub CopyDatabaseToMainFolder()
+    Public Shared Sub CopyDatabaseToMainFolder()
         Dim currentDirectory As String = Directory.GetCurrentDirectory()
 
         Dim databaseFilePath As String = Path.Combine(currentDirectory, "Database_University.mdb")
 
         Dim path1 As String = Path.Combine(currentDirectory)
-        Dim path2 As String() = path1.Split("bin")
 
         Dim databaseFileName As String = "Database_University.mdb"
-        Dim pa1 = path2(0)
-        Dim pa2 = path2(1)
+
         Dim destinationDatabaseFilePath As String = Path.Combine(path1.Substring(0, path1.IndexOf("bin")), databaseFileName)
 
         File.Copy(databaseFilePath, destinationDatabaseFilePath, True)
