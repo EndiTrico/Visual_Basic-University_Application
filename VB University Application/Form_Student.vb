@@ -209,4 +209,10 @@
         End If
     End Sub
 
+    Private Sub saveAcademicTranscript_Click(sender As Object, e As EventArgs) Handles saveAcademicTranscript.Click
+        richTxtBoxResult.Clear()
+        Dim stud As Student
+        stud = New Student(StudentID, Name, Surname, Username, Password, Major, Courses)
+        stud.saveAcademicTranscript()
+    End Sub
 End Class

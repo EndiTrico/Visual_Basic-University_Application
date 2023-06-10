@@ -1,4 +1,6 @@
 ﻿Imports System.Data.OleDb
+Imports System.IO
+Imports Microsoft.SqlServer
 
 Public Class Student
     Inherits Person
@@ -317,6 +319,36 @@ Public Class Student
             Return -1
         End Using
     End Function
+
+    Public Sub saveAcademicTranscript()
+        Dim folderPath As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "\Student_Transcripts")
+
+        If Not Directory.Exists(folderPath) Then
+            Directory.CreateDirectory(folderPath)
+        End If
+
+
+        Dim fileName = folderPath & "/" & Name & Surname & ".txt"
+        If Not File.Exists(fileName) Then
+            File.Create(fileName).Dispose()
+        End If
+
+        Dim sw As New StreamWriter(fileName, False)
+        sw.WriteLine($"{Name} {Surname} Academic Transcript")
+        sw.WriteLine($"ID: {Id}")
+        If Major <> "" Then
+            sw.WriteLine($"Major: {Major}")
+        End If
+        sw.WriteLine()
+
+        For Each grade As String In showGrades()
+            sw.WriteLine(grade)
+        Next
+
+        sw.Close()
+
+        Process.Start(fileName)
+    End Sub
 
     ' Function to Get a String Representation of Student
     Public Overrides Function ToString() As String

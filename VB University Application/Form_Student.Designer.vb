@@ -24,6 +24,7 @@ Partial Class Form_Student
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form_Student))
         Me.studentPanel = New System.Windows.Forms.Panel()
+        Me.saveAcademicTranscript = New System.Windows.Forms.Button()
         Me.btnBack = New System.Windows.Forms.Button()
         Me.btnMyGPA = New System.Windows.Forms.Button()
         Me.btnMyCredits = New System.Windows.Forms.Button()
@@ -43,6 +44,7 @@ Partial Class Form_Student
         'studentPanel
         '
         Me.studentPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(87, Byte), Integer))
+        Me.studentPanel.Controls.Add(Me.saveAcademicTranscript)
         Me.studentPanel.Controls.Add(Me.btnBack)
         Me.studentPanel.Controls.Add(Me.btnMyGPA)
         Me.studentPanel.Controls.Add(Me.btnMyCredits)
@@ -57,6 +59,21 @@ Partial Class Form_Student
         Me.studentPanel.Name = "studentPanel"
         Me.studentPanel.Size = New System.Drawing.Size(400, 283)
         Me.studentPanel.TabIndex = 0
+        '
+        'saveAcademicTranscript
+        '
+        Me.saveAcademicTranscript.BackColor = System.Drawing.Color.Snow
+        Me.saveAcademicTranscript.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.saveAcademicTranscript.FlatAppearance.BorderSize = 0
+        Me.saveAcademicTranscript.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.saveAcademicTranscript.Font = New System.Drawing.Font("Corbel", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.saveAcademicTranscript.ForeColor = System.Drawing.Color.Black
+        Me.saveAcademicTranscript.Location = New System.Drawing.Point(108, 244)
+        Me.saveAcademicTranscript.Name = "saveAcademicTranscript"
+        Me.saveAcademicTranscript.Size = New System.Drawing.Size(182, 35)
+        Me.saveAcademicTranscript.TabIndex = 11
+        Me.saveAcademicTranscript.Text = "9.  Save Academic Transcript"
+        Me.saveAcademicTranscript.UseVisualStyleBackColor = False
         '
         'btnBack
         '
@@ -280,4 +297,5 @@ Partial Class Form_Student
     Friend WithEvents lblResult As Label
     Friend WithEvents btnExit As Button
     Friend WithEvents richTxtBoxResult As RichTextBox
+    Friend WithEvents saveAcademicTranscript As Button
 End Class
