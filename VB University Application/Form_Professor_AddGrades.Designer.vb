@@ -28,13 +28,14 @@ Partial Class Form_Professor_AddGrades
         Me.button_Add = New System.Windows.Forms.Button()
         Me.buttonExit = New System.Windows.Forms.Button()
         Me.panel1 = New System.Windows.Forms.Panel()
+        Me.comboBoxID = New System.Windows.Forms.ComboBox()
         Me.txtBoxGrade = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.listBoxStudentNames = New System.Windows.Forms.ListBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.comboBoxID = New System.Windows.Forms.ComboBox()
+        Me.dgvOutput = New System.Windows.Forms.DataGridView()
         Me.panel1.SuspendLayout()
+        CType(Me.dgvOutput, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'button_Back
@@ -89,11 +90,11 @@ Partial Class Form_Professor_AddGrades
         'panel1
         '
         Me.panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(87, Byte), Integer))
+        Me.panel1.Controls.Add(Me.dgvOutput)
         Me.panel1.Controls.Add(Me.comboBoxID)
         Me.panel1.Controls.Add(Me.txtBoxGrade)
         Me.panel1.Controls.Add(Me.Label7)
         Me.panel1.Controls.Add(Me.Label2)
-        Me.panel1.Controls.Add(Me.listBoxStudentNames)
         Me.panel1.Controls.Add(Me.Label1)
         Me.panel1.Controls.Add(Me.button_Add)
         Me.panel1.Controls.Add(Me.buttonExit)
@@ -102,6 +103,14 @@ Partial Class Form_Professor_AddGrades
         Me.panel1.Name = "panel1"
         Me.panel1.Size = New System.Drawing.Size(512, 331)
         Me.panel1.TabIndex = 3
+        '
+        'comboBoxID
+        '
+        Me.comboBoxID.FormattingEnabled = True
+        Me.comboBoxID.Location = New System.Drawing.Point(331, 88)
+        Me.comboBoxID.Name = "comboBoxID"
+        Me.comboBoxID.Size = New System.Drawing.Size(141, 21)
+        Me.comboBoxID.TabIndex = 34
         '
         'txtBoxGrade
         '
@@ -133,16 +142,6 @@ Partial Class Form_Professor_AddGrades
         Me.Label2.TabIndex = 25
         Me.Label2.Text = "Student ID:"
         '
-        'listBoxStudentNames
-        '
-        Me.listBoxStudentNames.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.listBoxStudentNames.FormattingEnabled = True
-        Me.listBoxStudentNames.ItemHeight = 16
-        Me.listBoxStudentNames.Location = New System.Drawing.Point(12, 59)
-        Me.listBoxStudentNames.Name = "listBoxStudentNames"
-        Me.listBoxStudentNames.Size = New System.Drawing.Size(207, 244)
-        Me.listBoxStudentNames.TabIndex = 21
-        '
         'Label1
         '
         Me.Label1.AutoSize = True
@@ -154,13 +153,17 @@ Partial Class Form_Professor_AddGrades
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Add Grades"
         '
-        'comboBoxID
+        'dgvOutput
         '
-        Me.comboBoxID.FormattingEnabled = True
-        Me.comboBoxID.Location = New System.Drawing.Point(331, 88)
-        Me.comboBoxID.Name = "comboBoxID"
-        Me.comboBoxID.Size = New System.Drawing.Size(141, 21)
-        Me.comboBoxID.TabIndex = 34
+        Me.dgvOutput.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(87, Byte), Integer))
+        Me.dgvOutput.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.dgvOutput.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvOutput.Location = New System.Drawing.Point(12, 58)
+        Me.dgvOutput.Name = "dgvOutput"
+        Me.dgvOutput.ReadOnly = True
+        Me.dgvOutput.RowHeadersVisible = False
+        Me.dgvOutput.Size = New System.Drawing.Size(227, 233)
+        Me.dgvOutput.TabIndex = 35
         '
         'Form_Professor_AddGrades
         '
@@ -176,6 +179,7 @@ Partial Class Form_Professor_AddGrades
         Me.Text = "Form_Professor_AddGrades"
         Me.panel1.ResumeLayout(False)
         Me.panel1.PerformLayout()
+        CType(Me.dgvOutput, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -188,6 +192,6 @@ Partial Class Form_Professor_AddGrades
     Friend WithEvents txtBoxGrade As TextBox
     Friend WithEvents Label7 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents listBoxStudentNames As ListBox
     Friend WithEvents comboBoxID As ComboBox
+    Friend WithEvents dgvOutput As DataGridView
 End Class

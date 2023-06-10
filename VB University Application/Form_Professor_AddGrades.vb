@@ -35,8 +35,6 @@
     End Sub
 
     Private Sub Form_Professor_AddGrades_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        listBoxStudentNames.Items.Clear()
-
         Dim students As List(Of Student) = Professor.getRecentProfessor().getStudents()
 
         If students.Count = 0 Then
@@ -44,9 +42,17 @@
             Return
         End If
 
-        For Each student As Student In students
-            listBoxStudentNames.Items.Add(CStr(student.Id) + " " + student.Name & " " + student.Surname & vbLf)
-            comboBoxID.Items.Add(student.Id)
+        dgvOutput.ColumnCount = 3
+
+        dgvOutput.Columns(0).HeaderText = "ID"
+        dgvOutput.Columns(1).HeaderText = "First Name"
+        dgvOutput.Columns(2).HeaderText = "Last Name"
+
+        For Each row As Student In students
+            dgvOutput.Rows.Add(row.Id, row.Name, row.Surname)
+            comboBoxID.Items.Add(row.Id)
         Next
+
+        dgvOutput.AutoResizeColumns()
     End Sub
 End Class
