@@ -343,9 +343,7 @@ Public Class Student
         Dim sw As New StreamWriter(fileName, False)
         sw.WriteLine($"{Name} {Surname} Academic Transcript")
         sw.WriteLine($"ID: {Id}")
-        'If Major <> "" Then
         sw.WriteLine($"Major: {Major}")
-        'End If
         sw.WriteLine()
 
         For Each grade As String In showGrades()
