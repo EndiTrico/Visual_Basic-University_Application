@@ -177,11 +177,8 @@ Public Class Professor
         If data.Length = 0 Then Throw New InvalidInputException("You did not enter any grades!" & vbLf & "The format is: STUDENTID,GRADE")
 
         For Each grade In data
-            Dim inputs = grade.Split(","c)
 
-            If inputs.Length <> 2 Then Throw New InvalidInputException("The input given was not correctly written!" & vbLf & "The format is: STUDENTID,GRADE")
-
-            If getStudentFromID(Convert.ToInt32(inputs(0))) Is Nothing Then Throw New InvalidInputException("The student whose ID you entered is not enrolled in the course!")
+            If getStudentFromID(Convert.ToInt32(data(0))) Is Nothing Then Throw New InvalidInputException("The student whose ID you entered is not enrolled in the course!")
 
             Using connection As New OleDbConnection(connectionString)
                 connection.Open()
@@ -189,7 +186,7 @@ Public Class Professor
                 Dim command As New OleDbCommand("SELECT count(*) from Grades where Student_ID = ? AND Course_ID = ?", connection)
 
                 Dim paramCollection As OleDbParameterCollection = command.Parameters
-                paramCollection.Add(New OleDbParameter("Student_ID", inputs(0)))
+                paramCollection.Add(New OleDbParameter("Student_ID", data(0)))
                 paramCollection.Add(New OleDbParameter("Course_ID", ActiveCourseId))
                 Dim result As Integer = Convert.ToInt32(command.ExecuteScalar())
 
@@ -201,8 +198,8 @@ Public Class Professor
                 End If
 
                 Dim command1 As New OleDbCommand(sql, connection)
-                command1.Parameters.AddWithValue("@Grade_Score", inputs(1))
-                command1.Parameters.AddWithValue("@Student_ID", inputs(0))
+                command1.Parameters.AddWithValue("@Grade_Score", data(1))
+                command1.Parameters.AddWithValue("@Student_ID", data(0))
                 command1.Parameters.AddWithValue("@Course_ID", ActiveCourseId)
                 command1.ExecuteNonQuery()
             End Using

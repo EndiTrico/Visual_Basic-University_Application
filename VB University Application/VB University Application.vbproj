@@ -80,9 +80,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Database_UniversityDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Database_UniversityDataSet.vb">
-      <DependentUpon>Database_UniversityDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Form_Admin.Designer.vb">
       <DependentUpon>Form_Admin.vb</DependentUpon>
     </Compile>
@@ -263,6 +260,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\SUNY_Blue_Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Database_University.mdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

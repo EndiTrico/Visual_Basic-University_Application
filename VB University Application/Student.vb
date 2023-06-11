@@ -214,7 +214,12 @@ Public Class Student
         Using connection As New OleDbConnection(connectionString)
             connection.Open()
             Dim excludedCourseNameString As String = String.Join(",", Courses.[Select](Function(x) $"'{x}'"))
-            Dim coursesTable As New OleDbCommand($"SELECT Course_Name FROM Courses WHERE Course_Name NOT IN ({excludedCourseNameString})", connection)
+            Dim coursesTable As New OleDbCommand
+            If Not excludedCourseNameString.IsNullOrEmpty(excludedCourseNameString) Then
+                coursesTable = New OleDbCommand($"SELECT Course_Name FROM Courses WHERE Course_Name NOT IN ({excludedCourseNameString})", connection)
+            Else
+                coursesTable = New OleDbCommand("SELECT Course_Name FROM Courses", connection)
+            End If
 
             Using readerCoursesTable As OleDbDataReader = coursesTable.ExecuteReader()
                 If readerCoursesTable.HasRows Then

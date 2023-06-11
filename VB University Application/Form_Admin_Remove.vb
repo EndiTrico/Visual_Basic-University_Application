@@ -45,6 +45,7 @@
             Else
                 admin.removeProfessor(admin.professorList.ElementAt(comboBoxRemove.SelectedIndex))
                 MessageBox.Show("Professor Removed Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
+                Form_Welcome.CopyDatabaseToMainFolder()
                 Dim admin_Form As Form_Admin = New Form_Admin()
                 Close()
                 admin_Form.Show()
@@ -58,6 +59,7 @@
             Else
                 admin.removeStudent(admin.studentList.ElementAt(comboBoxRemove.SelectedIndex))
                 MessageBox.Show("Student Removed Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
+                Form_Welcome.CopyDatabaseToMainFolder()
                 Dim admin_Form As Form_Admin = New Form_Admin()
                 Close()
                 admin_Form.Show()
@@ -71,6 +73,7 @@
             Else
                 admin.removeCourse(admin.coursesList.ElementAt(comboBoxRemove.SelectedIndex))
                 MessageBox.Show("Course Removed Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
+                Form_Welcome.CopyDatabaseToMainFolder()
                 Dim admin_Form As Form_Admin = New Form_Admin()
                 Close()
                 admin_Form.Show()

@@ -72,6 +72,7 @@ Public Class Form_Admin_Add
                 addProfessor()
                 If admin.professorList.Count = indexProfessor + 1 Then
                     MessageBox.Show("Professor Added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
+                    Form_Welcome.CopyDatabaseToMainFolder()
                     Dim admin_Form As New Form_Admin()
                     Close()
                     admin_Form.Show()
@@ -88,6 +89,7 @@ Public Class Form_Admin_Add
                 addStudent()
                 If admin.studentList.Count = indexStudent + 1 Then
                     MessageBox.Show("Student Added Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
+                    Form_Welcome.CopyDatabaseToMainFolder()
                     Dim admin_form As New Form_Admin()
                     Close()
                     admin_form.Show()
@@ -103,6 +105,7 @@ Public Class Form_Admin_Add
                 addCourse()
                 If admin.coursesList.Count = indexNumber + 1 Then
                     MessageBox.Show("Course Added Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
+                    Form_Welcome.CopyDatabaseToMainFolder()
                     Dim admin_form As New Form_Admin()
                     Close()
                     admin_form.Show()

@@ -1,4 +1,6 @@
-﻿Public Class Form_Welcome
+﻿Imports System.IO
+
+Public Class Form_Welcome
     Inherits Form
 
     Public Sub New()
@@ -20,7 +22,22 @@
     End Sub
 
     Private Sub exitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles exitToolStripMenuItem.Click
+        CopyDatabaseToMainFolder()
         Application.[Exit]()
+    End Sub
+
+    Public Shared Sub CopyDatabaseToMainFolder()
+        Dim currentDirectory As String = Directory.GetCurrentDirectory()
+
+        Dim databaseFilePath As String = Path.Combine(currentDirectory, "Database_University.mdb")
+
+        Dim path1 As String = Path.Combine(currentDirectory)
+
+        Dim databaseFileName As String = "Database_University.mdb"
+
+        Dim destinationDatabaseFilePath As String = Path.Combine(path1.Substring(0, path1.IndexOf("bin")), databaseFileName)
+
+        File.Copy(databaseFilePath, destinationDatabaseFilePath, True)
     End Sub
 
     Private Sub loginToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles loginToolStripMenuItem.Click

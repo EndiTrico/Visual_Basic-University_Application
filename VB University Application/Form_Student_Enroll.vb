@@ -109,6 +109,7 @@
         If comboBoxEnroll.SelectedIndex = -1 Then
             MessageBox.Show("Select a Course!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.[Error])
         Else
+            Form_Welcome.CopyDatabaseToMainFolder()
             Dim student = New Student(StudentID, Name, Surname, Username, Password, Major)
             student.enroll(comboBoxEnroll.Text, StudentID)
             MessageBox.Show("The Course is Added Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)

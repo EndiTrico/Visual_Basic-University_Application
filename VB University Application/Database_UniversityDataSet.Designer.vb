@@ -3410,7 +3410,7 @@ Namespace Database_UniversityDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.OleDb.OleDbConnection()
-            Me._connection.ConnectionString = Global.VB_University_Application.My.MySettings.Default.Database_UniversityConnectionString
+            Me._connection.ConnectionString = Global.VB_University_Application.My.MySettings.Default.Database_UniversityConnectionString1
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3771,7 +3771,7 @@ Namespace Database_UniversityDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.OleDb.OleDbConnection()
-            Me._connection.ConnectionString = Global.VB_University_Application.My.MySettings.Default.Database_UniversityConnectionString
+            Me._connection.ConnectionString = Global.VB_University_Application.My.MySettings.Default.Database_UniversityConnectionString1
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4134,7 +4134,7 @@ Namespace Database_UniversityDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.OleDb.OleDbConnection()
-            Me._connection.ConnectionString = Global.VB_University_Application.My.MySettings.Default.Database_UniversityConnectionString
+            Me._connection.ConnectionString = Global.VB_University_Application.My.MySettings.Default.Database_UniversityConnectionString1
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4460,7 +4460,7 @@ Namespace Database_UniversityDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.OleDb.OleDbConnection()
-            Me._connection.ConnectionString = Global.VB_University_Application.My.MySettings.Default.Database_UniversityConnectionString
+            Me._connection.ConnectionString = Global.VB_University_Application.My.MySettings.Default.Database_UniversityConnectionString1
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4768,7 +4768,7 @@ Namespace Database_UniversityDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.OleDb.OleDbConnection()
-            Me._connection.ConnectionString = Global.VB_University_Application.My.MySettings.Default.Database_UniversityConnectionString
+            Me._connection.ConnectionString = Global.VB_University_Application.My.MySettings.Default.Database_UniversityConnectionString1
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -5104,7 +5104,7 @@ Namespace Database_UniversityDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.OleDb.OleDbConnection()
-            Me._connection.ConnectionString = Global.VB_University_Application.My.MySettings.Default.Database_UniversityConnectionString
+            Me._connection.ConnectionString = Global.VB_University_Application.My.MySettings.Default.Database_UniversityConnectionString1
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
