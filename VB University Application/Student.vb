@@ -60,6 +60,7 @@ Public Class Student
         Me.Id = Convert.ToInt32(reader("Student_ID").ToString())
         Me.Name = reader("First_Name").ToString()
         Me.Surname = reader("Last_Name").ToString()
+        Me.Major = reader("Major").ToString()
 
         Dim con As New OleDbConnection(connectionString)
         con.Open()
@@ -67,6 +68,7 @@ Public Class Student
         Dim sql As String = "SELECT * FROM Courses WHERE Course_Id IN (SELECT Course_Id from Students_Courses WHERE Student_Id=" & Me.Id & ")"
         Dim cmd As New OleDbCommand(sql, con)
         Dim courseReader As OleDbDataReader = cmd.ExecuteReader()
+
 
         If courseReader.HasRows Then
             While courseReader.Read()
@@ -341,9 +343,9 @@ Public Class Student
         Dim sw As New StreamWriter(fileName, False)
         sw.WriteLine($"{Name} {Surname} Academic Transcript")
         sw.WriteLine($"ID: {Id}")
-        If Major <> "" Then
-            sw.WriteLine($"Major: {Major}")
-        End If
+        'If Major <> "" Then
+        sw.WriteLine($"Major: {Major}")
+        'End If
         sw.WriteLine()
 
         For Each grade As String In showGrades()
